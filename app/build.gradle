@@ -26,6 +26,8 @@ android {
 }
 
 ext.androidSupportVersion = '28.0.0'
+ext.gsonVersion = '2.8.5'
+ext.volleyVersion = '1.1.1'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -34,6 +36,10 @@ dependencies {
     implementation "com.android.support:design:$androidSupportVersion"
     implementation "com.android.support:recyclerview-v7:$androidSupportVersion"
     implementation "com.android.support:cardview-v7:$androidSupportVersion"
+
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.android.volley:volley:$volleyVersion"
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
