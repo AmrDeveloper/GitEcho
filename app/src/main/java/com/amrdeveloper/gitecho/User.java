@@ -1,24 +1,50 @@
 package com.amrdeveloper.gitecho;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("login")
     private String username;
+
+    @SerializedName("avatar_url")
     private String avatarUrl;
+
+    @SerializedName("bio")
+    private String biography;
+
+    @SerializedName("location")
     private String location;
+
+    @SerializedName("email")
     private String email;
+
+    @SerializedName("company")
     private String company;
+
+    @SerializedName("public_repos")
     private int reposNumber;
+
+    @SerializedName("public_gists")
     private int gistsNumber;
+
+    @SerializedName("followers")
     private int followersNum;
+
+    @SerializedName("following")
     private int followingNum;
 
     public User(String name, String username, String avatarUrl,
-                String location, String email, String company,
-                int reposNumber, int gistsNumber, int followersNum,
-                int followingNum) {
+                String biography, String location, String email,
+                String company, int reposNumber, int gistsNumber,
+                int followersNum, int followingNum) {
         this.name = name;
         this.username = username;
         this.avatarUrl = avatarUrl;
+        this.biography = biography;
         this.location = location;
         this.email = email;
         this.company = company;
@@ -38,6 +64,10 @@ public class User {
 
     public String getAvatarUrl() {
         return avatarUrl;
+    }
+
+    public String getBiography() {
+        return biography;
     }
 
     public String getLocation() {
