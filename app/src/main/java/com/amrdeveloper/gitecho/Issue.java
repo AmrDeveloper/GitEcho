@@ -1,12 +1,21 @@
 package com.amrdeveloper.gitecho;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Issue {
 
+    @SerializedName("title")
     private String title;
+
+    @SerializedName("body")
     private String body;
+
+    @SerializedName("state")
     private String state;
     private String creatorName;
     private String creatorAvatarUrl;
+
+    @SerializedName("created_at")
     private String createdAt;
 
     public Issue(String title, String body, String state,
