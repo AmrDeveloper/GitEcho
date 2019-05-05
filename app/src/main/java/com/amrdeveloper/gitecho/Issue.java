@@ -44,7 +44,7 @@ public class Issue {
         return state;
     }
 
-    public Creator getIssueUser(){
+    public Creator getCreator(){
         return creator;
     }
 
