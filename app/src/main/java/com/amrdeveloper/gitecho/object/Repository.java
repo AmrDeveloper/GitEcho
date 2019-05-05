@@ -34,9 +34,13 @@ public class Repository {
     @SerializedName("fork")
     private boolean isForked;
 
+    @SerializedName("archived")
+    private boolean isArchived;
+
     public Repository(String name, String fullName, String repoOwner,
                       String description, String mainLanguage, License license,
-                      int starNum, int forkNum,int openIssuesNum, boolean isForked) {
+                      int starNum, int forkNum, int openIssuesNum,
+                      boolean isForked, boolean isArchived) {
         this.name = name;
         this.fullName = fullName;
         this.repoOwner = repoOwner;
@@ -47,6 +51,7 @@ public class Repository {
         this.forkNum = forkNum;
         this.openIssuesNum = openIssuesNum;
         this.isForked = isForked;
+        this.isArchived = isArchived;
     }
 
     public String getName() {
@@ -87,5 +92,9 @@ public class Repository {
 
     public boolean isForked() {
         return isForked;
+    }
+
+    public boolean isArchived() {
+        return isArchived;
     }
 }
