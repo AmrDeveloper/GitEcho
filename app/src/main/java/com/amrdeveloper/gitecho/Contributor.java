@@ -27,7 +27,7 @@ public class Contributor {
         return avatarUrl;
     }
 
-    public int getcontributionsNum() {
+    public int getContributionsNum() {
         return contributionsNum;
     }
 }
