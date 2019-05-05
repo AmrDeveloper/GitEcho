@@ -28,12 +28,15 @@ public class Repository {
     @SerializedName("forks")
     private int forkNum;
 
+    @SerializedName("open_issues_count")
+    private int openIssuesNum;
+
     @SerializedName("fork")
     private boolean isForked;
 
     public Repository(String name, String fullName, String repoOwner,
                       String description, String mainLanguage, String license,
-                      int starNum, int forkNum, boolean isForked) {
+                      int starNum, int forkNum,int openIssuesNum, boolean isForked) {
         this.name = name;
         this.fullName = fullName;
         this.repoOwner = repoOwner;
@@ -42,6 +45,7 @@ public class Repository {
         this.license = license;
         this.starNum = starNum;
         this.forkNum = forkNum;
+        this.openIssuesNum = openIssuesNum;
         this.isForked = isForked;
     }
 
@@ -75,6 +79,10 @@ public class Repository {
 
     public int getForkNum() {
         return forkNum;
+    }
+
+    private int getOpenIssuesNum(){
+        return openIssuesNum;
     }
 
     public boolean isForked() {
