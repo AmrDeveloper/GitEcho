@@ -4,12 +4,12 @@ public class Contributor {
 
     private String name;
     private String avatarUrl;
-    private int contributNum;
+    private int contributionsNum;
 
-    public Contributor(String name, String avatarUrl, int contributNum) {
+    public Contributor(String name, String avatarUrl, int contributionsNum) {
         this.name = name;
         this.avatarUrl = avatarUrl;
-        this.contributNum = contributNum;
+        this.contributionsNum = contributionsNum;
     }
 
     public String getName() {
@@ -20,7 +20,7 @@ public class Contributor {
         return avatarUrl;
     }
 
-    public int getContributNum() {
-        return contributNum;
+    public int getcontributionsNum() {
+        return contributionsNum;
     }
 }
