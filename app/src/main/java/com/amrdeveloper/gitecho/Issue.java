@@ -19,16 +19,21 @@ public class Issue {
     @SerializedName("created_at")
     private String createdAt;
 
+    @SerializedName("url")
+    private String issueUrl;
+
     @SerializedName("number")
     private int number;
 
     public Issue(String title, String body, String state,
-                 Creator creator, String createdAt, int number) {
+                 Creator creator, String createdAt, String issueUrl,
+                 int number) {
         this.title = title;
         this.body = body;
         this.state = state;
         this.creator = creator;
         this.createdAt = createdAt;
+        this.issueUrl = issueUrl;
         this.number = number;
     }
 
@@ -50,6 +55,10 @@ public class Issue {
 
     public String getCreatedAt() {
         return createdAt;
+    }
+
+    public String getIssueUrl() {
+        return issueUrl;
     }
 
     public int getIssueNumber(){
