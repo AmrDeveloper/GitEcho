@@ -12,19 +12,19 @@ public class Issue {
 
     @SerializedName("state")
     private String state;
-    private String creatorName;
-    private String creatorAvatarUrl;
+
+    @SerializedName("user")
+    private IssueUser issueUser;
 
     @SerializedName("created_at")
     private String createdAt;
 
     public Issue(String title, String body, String state,
-                 String creatorName, String creatorAvatarUrl, String createdAt) {
+                 IssueUser issueUser, String createdAt) {
         this.title = title;
         this.body = body;
         this.state = state;
-        this.creatorName = creatorName;
-        this.creatorAvatarUrl = creatorAvatarUrl;
+        this.issueUser = issueUser;
         this.createdAt = createdAt;
     }
 
@@ -40,12 +40,8 @@ public class Issue {
         return state;
     }
 
-    public String getCreatorName() {
-        return creatorName;
-    }
-
-    public String getCreatorAvatarUrl() {
-        return creatorAvatarUrl;
+    public IssueUser getIssueUser(){
+        return issueUser;
     }
 
     public String getCreatedAt() {
