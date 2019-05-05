@@ -14,7 +14,7 @@ public class Issue {
     private String state;
 
     @SerializedName("user")
-    private IssueUser issueUser;
+    private Creator creator;
 
     @SerializedName("created_at")
     private String createdAt;
@@ -23,11 +23,11 @@ public class Issue {
     private int number;
 
     public Issue(String title, String body, String state,
-                 IssueUser issueUser, String createdAt,int number) {
+                 Creator creator, String createdAt, int number) {
         this.title = title;
         this.body = body;
         this.state = state;
-        this.issueUser = issueUser;
+        this.creator = creator;
         this.createdAt = createdAt;
         this.number = number;
     }
@@ -44,8 +44,8 @@ public class Issue {
         return state;
     }
 
-    public IssueUser getIssueUser(){
-        return issueUser;
+    public Creator getIssueUser(){
+        return creator;
     }
 
     public String getCreatedAt() {

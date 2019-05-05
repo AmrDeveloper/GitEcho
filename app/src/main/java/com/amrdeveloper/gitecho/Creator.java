@@ -2,7 +2,7 @@ package com.amrdeveloper.gitecho;
 
 import com.google.gson.annotations.SerializedName;
 
-public class IssueUser {
+public class Creator {
 
     @SerializedName("login")
     private String username;
@@ -10,7 +10,7 @@ public class IssueUser {
     @SerializedName("avatar_url")
     private String avatarUrl;
 
-    public IssueUser(String username, String avatarUrl) {
+    public Creator(String username, String avatarUrl) {
         this.username = username;
         this.avatarUrl = avatarUrl;
     }
