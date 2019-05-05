@@ -28,10 +28,13 @@ android {
 ext.androidSupportVersion = '28.0.0'
 ext.gsonVersion = '2.8.5'
 ext.volleyVersion = '1.1.1'
+ext.picassoVersion = '2.71828'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:$androidSupportVersion"
+    implementation "com.android.support:animated-vector-drawable:$androidSupportVersion"
+    implementation "com.android.support:exifinterface:$androidSupportVersion"
     implementation "com.android.support:support-v4:$androidSupportVersion"
     implementation "com.android.support:design:$androidSupportVersion"
     implementation "com.android.support:recyclerview-v7:$androidSupportVersion"
@@ -39,6 +42,7 @@ dependencies {
 
     implementation "com.google.code.gson:gson:$gsonVersion"
     implementation "com.android.volley:volley:$volleyVersion"
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
