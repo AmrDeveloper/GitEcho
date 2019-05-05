@@ -20,7 +20,7 @@ public class Repository {
     private String mainLanguage;
 
     @SerializedName("license")
-    private String license;
+    private License license;
 
     @SerializedName("stargazers_count")
     private int starNum;
@@ -35,7 +35,7 @@ public class Repository {
     private boolean isForked;
 
     public Repository(String name, String fullName, String repoOwner,
-                      String description, String mainLanguage, String license,
+                      String description, String mainLanguage, License license,
                       int starNum, int forkNum,int openIssuesNum, boolean isForked) {
         this.name = name;
         this.fullName = fullName;
@@ -69,7 +69,7 @@ public class Repository {
         return mainLanguage;
     }
 
-    public String getLicense() {
+    public License getLicense() {
         return license;
     }
 
