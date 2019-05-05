@@ -1,17 +1,34 @@
 package com.amrdeveloper.gitecho;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Repository {
 
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("full_name")
     private String fullName;
+
+    @SerializedName("owner")
     private String repoOwner;
+
+    @SerializedName("description")
     private String description;
+
+    @SerializedName("language")
     private String mainLanguage;
+
+    @SerializedName("license")
     private String license;
 
+    @SerializedName("stargazers_count")
     private int starNum;
+
+    @SerializedName("forks")
     private int forkNum;
 
+    @SerializedName("fork")
     private boolean isForked;
 
     public Repository(String name, String fullName, String repoOwner,
