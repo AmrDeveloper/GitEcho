@@ -1,11 +1,25 @@
 package com.amrdeveloper.gitecho;
 
+import com.google.gson.annotations.SerializedName;
+
 public class PullRequest {
+
+    @SerializedName("title")
     private String title;
+
+    @SerializedName("state")
     private String state;
+
+    @SerializedName("user")
     private Creator creator;
+
+    @SerializedName("created_at")
     private String createdAt;
+
+    @SerializedName("url")
     private String pullUrl;
+
+    @SerializedName("number")
     private int number;
 
     public PullRequest(String title, String state, Creator creator,
