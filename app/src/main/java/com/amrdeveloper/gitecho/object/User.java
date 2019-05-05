@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.object;
 
 import com.google.gson.annotations.SerializedName;
 

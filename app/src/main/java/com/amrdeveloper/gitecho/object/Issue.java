@@ -1,11 +1,14 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.object;
 
 import com.google.gson.annotations.SerializedName;
 
-public class PullRequest {
+public class Issue {
 
     @SerializedName("title")
     private String title;
+
+    @SerializedName("body")
+    private String body;
 
     @SerializedName("state")
     private String state;
@@ -17,18 +20,20 @@ public class PullRequest {
     private String createdAt;
 
     @SerializedName("url")
-    private String pullUrl;
+    private String issueUrl;
 
     @SerializedName("number")
     private int number;
 
-    public PullRequest(String title, String state, Creator creator,
-                       String createdAt, String pullUrl, int number) {
+    public Issue(String title, String body, String state,
+                 Creator creator, String createdAt, String issueUrl,
+                 int number) {
         this.title = title;
+        this.body = body;
         this.state = state;
         this.creator = creator;
         this.createdAt = createdAt;
-        this.pullUrl = pullUrl;
+        this.issueUrl = issueUrl;
         this.number = number;
     }
 
@@ -36,11 +41,15 @@ public class PullRequest {
         return title;
     }
 
+    public String getBody() {
+        return body;
+    }
+
     public String getState() {
         return state;
     }
 
-    public Creator getCreator() {
+    public Creator getCreator(){
         return creator;
     }
 
@@ -48,11 +57,11 @@ public class PullRequest {
         return createdAt;
     }
 
-    public String getPullUrl() {
-        return pullUrl;
+    public String getIssueUrl() {
+        return issueUrl;
     }
 
-    public int getNumber() {
+    public int getIssueNumber(){
         return number;
     }
 }
