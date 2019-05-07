@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/githubMark"
+        android:layout_width="@dimen/dimen150dp"
+        android:layout_height="@dimen/dimen150dp"
+        android:layout_above="@id/usernameEdit"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/github_mark"
+        android:src="@drawable/ic_mark_github" />
+
+    <EditText
+        android:id="@+id/usernameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/dimen10dp"
+        android:backgroundTint="@color/gray"
+        android:gravity="center"
+        android:hint="@string/github_username"
+        android:textColorHint="@color/gray" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameEdit"
+        android:layout_centerHorizontal="true"
+        android:background="@color/grayBlack"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+</RelativeLayout>
+</layout>

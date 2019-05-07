@@ -2,4 +2,7 @@
     <string name="app_name">GitEcho</string>
 
     <string name="repo_icon">Repository Icon</string>
+    <string name="login">Login</string>
+    <string name="github_username">Github username</string>
+    <string name="github_mark">Github Mark</string>
 </resources>
