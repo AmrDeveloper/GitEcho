@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/issueCardView"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen85dp"
+    app:cardCornerRadius="@dimen/dimen5dp"
+    app:cardElevation="@dimen/dimen2dp"
+    app:cardUseCompatPadding="true"
+    app:elevation="@dimen/dimen5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/issueIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="@dimen/dimen5dp"
+            android:contentDescription="@string/issue_icon"
+            android:src="@drawable/ic_issue_opened" />
+
+        <TextView
+            android:id="@+id/issueTitleTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/issueIcon"
+            android:layout_toRightOf="@id/issueIcon"
+            android:lines="3"
+            tools:text="Issue Title"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/issueInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/issueTitleTxt"
+            android:layout_toEndOf="@id/issueIcon"
+            android:layout_toRightOf="@id/issueIcon"
+            android:lines="1"
+            tools:text="Issue Information"
+            android:textColor="@color/gray" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+</layout>
