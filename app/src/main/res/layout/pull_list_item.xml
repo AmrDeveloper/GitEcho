@@ -18,8 +18,8 @@
 
             <ImageView
                 android:id="@+id/pullIcon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/dimen50dp"
+                android:layout_height="@dimen/dimen50dp"
                 android:contentDescription="@string/issue_icon"
                 android:padding="@dimen/dimen5dp"
                 android:src="@drawable/ic_pull_request" />
@@ -32,7 +32,7 @@
                 android:layout_toRightOf="@id/pullIcon"
                 android:lines="3"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="@dimen/dimen15sp"
                 android:textStyle="bold"
                 tools:text="Pull Title" />
 
