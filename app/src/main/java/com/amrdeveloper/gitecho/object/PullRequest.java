@@ -65,7 +65,7 @@ public class PullRequest {
     }
 
     public String getMergetAt() {
-        return mergetAt;
+        return mergedAt;
     }
 
     public String getPullUrl() {
