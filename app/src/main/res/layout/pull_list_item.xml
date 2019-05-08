@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/issueCardView"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dimen85dp"
-    app:cardCornerRadius="@dimen/dimen5dp"
-    app:cardElevation="@dimen/dimen2dp"
-    app:cardUseCompatPadding="true"
-    app:elevation="@dimen/dimen5dp">
+<layout>
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pullCardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen85dp"
+        app:cardCornerRadius="@dimen/dimen5dp"
+        app:cardElevation="@dimen/dimen2dp"
+        app:cardUseCompatPadding="true"
+        app:elevation="@dimen/dimen5dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-</android.support.v7.widget.CardView>
+            <ImageView
+                android:id="@+id/pullIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/issue_icon"
+                android:padding="@dimen/dimen5dp"
+                android:src="@drawable/ic_pull_request" />
+
+            <TextView
+                android:id="@+id/pullTitleTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/pullIcon"
+                android:layout_toRightOf="@id/pullIcon"
+                android:lines="3"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="Pull Title" />
+
+            <TextView
+                android:id="@+id/issueInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pullTitleTxt"
+                android:layout_toEndOf="@id/pullIcon"
+                android:layout_toRightOf="@id/pullIcon"
+                android:lines="1"
+                android:textColor="@color/gray"
+                tools:text="pull Information" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>
