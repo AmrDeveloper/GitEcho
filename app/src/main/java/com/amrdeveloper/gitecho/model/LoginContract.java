@@ -2,8 +2,8 @@ package com.amrdeveloper.gitecho.model;
 
 import android.content.Context;
 
-public class LoginContract {
-    
+public interface LoginContract {
+
     public interface Model {
         boolean isUsernameValid(String username);
 
@@ -11,9 +11,7 @@ public class LoginContract {
     }
 
     public interface View {
-        void showErrorMessage(String message);
-
-        void onLoginSuccess();
+        void onLoginSuccess(String username);
 
         void onLoginFailure();
 
