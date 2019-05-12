@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.Session;
+import com.amrdeveloper.gitecho.utils.Session;
 import com.amrdeveloper.gitecho.databinding.ActivityLoginBinding;
 import com.amrdeveloper.gitecho.model.LoginContract;
 import com.amrdeveloper.gitecho.presenter.LoginPresenter;
