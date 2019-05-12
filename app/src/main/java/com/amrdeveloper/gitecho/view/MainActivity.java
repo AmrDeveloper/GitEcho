@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho.activity;
+package com.amrdeveloper.gitecho.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
