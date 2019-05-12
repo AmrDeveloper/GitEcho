@@ -34,6 +34,8 @@
                 android:layout_margin="@dimen/dimen10dp"
                 android:backgroundTint="@color/gray"
                 android:hint="@string/github_username"
+                android:inputType="text"
+                android:textColor="@color/orange"
                 android:textColorHint="@color/gray" />
         </android.support.design.widget.TextInputLayout>
 
