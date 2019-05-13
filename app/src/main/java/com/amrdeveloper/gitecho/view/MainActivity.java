@@ -29,13 +29,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        presenter = new MainPresenter(this,this);
-
-        setRecyclerViewSettings();
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        presenter = new MainPresenter(this, this);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
+
+        setRecyclerViewSettings();
+        setActivityTitle(username);
 
         presenter.startLoadingData(username);
     }
@@ -56,11 +57,15 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         return true;
     }
 
-    private void setRecyclerViewSettings(){
+    private void setRecyclerViewSettings() {
         repoRecyclerAdapter = new RepoRecyclerAdapter(this);
         binding.repoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.repoRecyclerView.setHasFixedSize(true);
         binding.repoRecyclerView.setAdapter(repoRecyclerAdapter);
+    }
+
+    private void setActivityTitle(String username) {
+        setTitle("@" + username);
     }
 
     @Override
