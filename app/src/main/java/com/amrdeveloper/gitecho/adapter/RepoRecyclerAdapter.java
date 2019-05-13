@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.adapter;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.RepoListItemBinding;
 import com.amrdeveloper.gitecho.object.Repository;
 

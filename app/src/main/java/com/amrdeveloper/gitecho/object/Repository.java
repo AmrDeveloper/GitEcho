@@ -11,7 +11,7 @@ public class Repository {
     private String fullName;
 
     @SerializedName("owner")
-    private String repoOwner;
+    private Owner repoOwner;
 
     @SerializedName("description")
     private String description;
@@ -37,7 +37,7 @@ public class Repository {
     @SerializedName("archived")
     private boolean isArchived;
 
-    public Repository(String name, String fullName, String repoOwner,
+    public Repository(String name, String fullName, Owner repoOwner,
                       String description, String mainLanguage, License license,
                       int starNum, int forkNum, int openIssuesNum,
                       boolean isForked, boolean isArchived) {
@@ -62,7 +62,7 @@ public class Repository {
         return fullName;
     }
 
-    public String getRepoOwner() {
+    public Owner getRepoOwner() {
         return repoOwner;
     }
 

@@ -6,4 +6,7 @@ public class UrlCreator {
         return "https://api.github.com/users/".concat(username);
     }
 
+    public static String repositoriesUrl(String username){
+        return "https://api.github.com/users/".concat(username).concat("/repos");
+    }
 }
