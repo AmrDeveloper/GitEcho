@@ -21,8 +21,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = DataBindingUtil.setContentView(this,R.layout.activity_login);
         presenter = new LoginPresenter(this,this);
+
+        isUserLogged();
 
         binding.loginButton.setOnClickListener(view -> {
             String username = binding.usernameEdit.getText().toString().trim();
@@ -37,9 +40,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         Session session = new Session(this);
         session.login(username);
 
-        Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra("username",username);
-        startActivity(intent);
+        goToMainActivity(username);
     }
 
     @Override
@@ -55,5 +56,20 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void hideProgressBar() {
         binding.loadingIndicator.setVisibility(View.INVISIBLE);
+    }
+
+    private void isUserLogged(){
+        Session session = new Session(this);
+        boolean isLogged = session.isLogged();
+        if(isLogged){
+            String username = session.getUsername();
+            goToMainActivity(username);
+        }
+    }
+
+    private void goToMainActivity(String username){
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("username",username);
+        startActivity(intent);
     }
 }

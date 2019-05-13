@@ -5,5 +5,5 @@
         android:id="@+id/profileMenu"
         android:icon="@drawable/ic_person"
         android:title="@string/profile"
-        app:showAsAction="always|ifRoom" />
+        app:showAsAction="always" />
 </menu>

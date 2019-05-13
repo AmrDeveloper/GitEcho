@@ -21,4 +21,8 @@ public class Session {
     public boolean logOut(){
         return sessionPreferences.removeUsername();
     }
+
+    public String getUsername(){
+        return sessionPreferences.getUsername();
+    }
 }
