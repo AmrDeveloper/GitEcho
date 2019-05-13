@@ -14,8 +14,8 @@ public class Session {
         return sessionPreferences.setUsername(username);
     }
 
-    public boolean isLoged(String username){
-        return sessionPreferences.getUsername() != null;
+    public boolean isLogged(){
+        return !sessionPreferences.getUsername().isEmpty();
     }
 
     public boolean logOut(){
