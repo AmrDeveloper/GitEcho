@@ -50,6 +50,13 @@ public class RepoRecyclerAdapter extends RecyclerView.Adapter<RepoRecyclerAdapte
         return repositoryList.size();
     }
 
+    public void updateRecyclerData(List<Repository> repositoryList){
+        if(repositoryList != null){
+            this.repositoryList = repositoryList;
+            notifyDataSetChanged();
+        }
+    }
+
     class RepoViewHolder extends RecyclerView.ViewHolder{
 
         private RepoListItemBinding binding;
