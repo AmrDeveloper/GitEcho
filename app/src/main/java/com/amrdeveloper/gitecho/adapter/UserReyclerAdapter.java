@@ -33,11 +33,11 @@ public class UserReyclerAdapter extends RecyclerView.Adapter<UserReyclerAdapter.
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        int layoutID = R.layout.repo_list_item;
+        int layoutID = R.layout.user_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         final boolean shouldAttachToParentImmediately = false;
         UserListItemBinding binding = DataBindingUtil.inflate(inflater,layoutID,parent,shouldAttachToParentImmediately);
-        return new UserReyclerAdapter.UserViewHolder(binding);
+        return new UserViewHolder(binding);
     }
 
     @Override
