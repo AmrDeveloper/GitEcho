@@ -14,7 +14,7 @@ import com.amrdeveloper.gitecho.object.PullRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PullRecyclerAdapter extends RecyclerView.Adapter<PullRecyclerAdapter.PullViewHolder>{
+public class PullRecyclerAdapter extends RecyclerView.Adapter<PullRecyclerAdapter.PullViewHolder> {
 
     private Context context;
     private List<PullRequest> pullRequestList;
@@ -41,8 +41,8 @@ public class PullRecyclerAdapter extends RecyclerView.Adapter<PullRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull PullViewHolder pullViewHolder, int i) {
-         PullRequest currentPullRequest = pullRequestList.get(i);
-         pullViewHolder.bingPullRequest(currentPullRequest);
+        PullRequest currentPullRequest = pullRequestList.get(i);
+        pullViewHolder.bingPullRequest(currentPullRequest);
     }
 
     @Override
@@ -50,14 +50,14 @@ public class PullRecyclerAdapter extends RecyclerView.Adapter<PullRecyclerAdapte
         return pullRequestList.size();
     }
 
-    public void updateRecyclerData(List<PullRequest> pullRequestList){
-        if(pullRequestList != null){
+    public void updateRecyclerData(List<PullRequest> pullRequestList) {
+        if (pullRequestList != null) {
             this.pullRequestList = pullRequestList;
             notifyDataSetChanged();
         }
     }
 
-    class PullViewHolder extends RecyclerView.ViewHolder{
+    class PullViewHolder extends RecyclerView.ViewHolder {
 
         private PullListItemBinding binding;
 
@@ -66,8 +66,25 @@ public class PullRecyclerAdapter extends RecyclerView.Adapter<PullRecyclerAdapte
             this.binding = binding;
         }
 
-        private void bingPullRequest(PullRequest pullRequest){
+        private void bingPullRequest(PullRequest pullRequest) {
             binding.pullTitleTxt.setText(pullRequest.getTitle());
+            //TODO : create info like github with format
+            //TODO : #<Number> <opened/closed> on <Time> by <creator>
+            binding.issueInfo.setText(pullRequest.getState());
+            switch (pullRequest.getPullRequestType()) {
+                case PullRequest.STATE_OPEN: {
+                    binding.pullIcon.setImageResource(R.drawable.ic_pull_request);
+                    break;
+                }
+                case PullRequest.STATE_CLOSE: {
+                    binding.pullIcon.setImageResource(R.drawable.ic_close_pull_request);
+                    break;
+                }
+                case PullRequest.STATE_MERGE: {
+                    binding.pullIcon.setImageResource(R.drawable.ic_git_merge);
+                    break;
+                }
+            }
         }
     }
 }
