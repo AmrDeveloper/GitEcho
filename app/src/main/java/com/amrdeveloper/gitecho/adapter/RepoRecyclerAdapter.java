@@ -74,13 +74,17 @@ public class RepoRecyclerAdapter extends RecyclerView.Adapter<RepoRecyclerAdapte
             binding.repoStarTxt.setText(String.valueOf(repository.getStarNum()));
             binding.repoForkTxt.setText(String.valueOf(repository.getForkNum()));
 
+            boolean isForked = repository.isForked();
+            if(isForked){
+                binding.repoIcon.setImageResource(R.drawable.ic_repo_forked);
+            }
+
             boolean isArchived = repository.isArchived();
             if(isArchived){
                 binding.repoArchivedTxt.setText(context.getString(R.string.archived));
                 binding.repoArchivedTxt.setVisibility(View.VISIBLE);
-            }else{
-                binding.repoArchivedTxt.setVisibility(View.INVISIBLE);
             }
+
         }
     }
 }
