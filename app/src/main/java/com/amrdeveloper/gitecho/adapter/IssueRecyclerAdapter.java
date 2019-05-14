@@ -14,7 +14,7 @@ import com.amrdeveloper.gitecho.object.Issue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdapter.IssueViewHolder>{
+public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdapter.IssueViewHolder> {
 
     private Context context;
     private List<Issue> issueList;
@@ -35,14 +35,14 @@ public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdap
         int layoutID = R.layout.issue_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         final boolean shouldAttachToParentImmediately = false;
-        IssueListItemBinding binding = DataBindingUtil.inflate(inflater,layoutID,parent,shouldAttachToParentImmediately);
+        IssueListItemBinding binding = DataBindingUtil.inflate(inflater, layoutID, parent, shouldAttachToParentImmediately);
         return new IssueViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull IssueViewHolder issueViewHolder, int i) {
-         Issue currentIssue = issueList.get(i);
-         issueViewHolder.bindIssue(currentIssue);
+        Issue currentIssue = issueList.get(i);
+        issueViewHolder.bindIssue(currentIssue);
     }
 
     @Override
@@ -50,14 +50,14 @@ public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdap
         return issueList.size();
     }
 
-    private void updateRecyclerData(List<Issue> issueList){
-        if(issueList != null){
+    private void updateRecyclerData(List<Issue> issueList) {
+        if (issueList != null) {
             this.issueList = issueList;
             notifyDataSetChanged();
         }
     }
 
-    class IssueViewHolder extends RecyclerView.ViewHolder{
+    class IssueViewHolder extends RecyclerView.ViewHolder {
 
         private IssueListItemBinding binding;
 
@@ -66,8 +66,14 @@ public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdap
             this.binding = binding;
         }
 
-        private void bindIssue(Issue issue){
-
+        private void bindIssue(Issue issue) {
+            //TODO : create info like github with format
+            //TODO : #<Number> <opened/closed> on <Time> by <creator>
+            int issueIcon = (issue.getIssueType().equals(Issue.OPENED))
+                    ? R.drawable.ic_issue_opened : R.drawable.ic_issue_closed;
+            binding.issueIcon.setImageResource(issueIcon);
+            binding.issueInfo.setText(issue.getState());
+            binding.issueTitleTxt.setText(issue.getTitle());
         }
     }
 }

@@ -28,6 +28,9 @@ public class Issue {
     @SerializedName("number")
     private int number;
 
+    public static final String OPENED = "Opened";
+    public static final String CLOSED = "Closed";
+
     public Issue(String title, String body, String state,
                  Creator creator, String createdAt, String issueUrl,
                  int number) {
@@ -84,5 +87,12 @@ public class Issue {
 
     public int getIssueNumber(){
         return number;
+    }
+
+    public String getIssueType(){
+        if(closedAt == null){
+           return OPENED;
+        }
+        return CLOSED;
     }
 }
