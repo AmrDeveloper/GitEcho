@@ -28,8 +28,8 @@ public class Issue {
     @SerializedName("number")
     private int number;
 
-    public static final String STATE_OPENED = "open";
-    public static final String STATE_CLOSED = "close";
+    public static final String STATE_OPEN = "open";
+    public static final String STATE_CLOSE = "close";
 
     public Issue(String title, String body, String state,
                  Creator creator, String createdAt, String issueUrl,
