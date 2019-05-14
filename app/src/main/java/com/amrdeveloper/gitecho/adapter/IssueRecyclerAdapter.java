@@ -69,7 +69,7 @@ public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdap
         private void bindIssue(Issue issue) {
             //TODO : create info like github with format
             //TODO : #<Number> <opened/closed> on <Time> by <creator>
-            int issueIcon = (issue.getState().equals(Issue.STATE_OPENED))
+            int issueIcon = (issue.getState().equals(Issue.STATE_OPEN))
                     ? R.drawable.ic_issue_opened : R.drawable.ic_issue_closed;
             binding.issueIcon.setImageResource(issueIcon);
             binding.issueInfo.setText(issue.getState());
