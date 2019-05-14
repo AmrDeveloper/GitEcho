@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.UserListItemBinding;
 import com.amrdeveloper.gitecho.object.User;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +68,11 @@ public class UserReyclerAdapter extends RecyclerView.Adapter<UserReyclerAdapter.
         }
 
         private void bingUser(User user){
-
+            binding.userNameTxt.setText(user.getName());
+            binding.userLoginTxt.setText(user.getUsername());
+            binding.userBioTxt.setText(user.getBiography());
+            binding.userLocationTxt.setText(user.getLocation());
+            Picasso.get().load(user.getAvatarUrl()).into(binding.userAvatarImg);
         }
     }
 }
