@@ -25,6 +25,10 @@ public class PullRequest {
     @SerializedName("number")
     private int number;
 
+    public static final String STATE_OPEN = "open";
+    public static final String STATE_CLOSE = "close";
+    public static final String STATE_MERGE = "merge";
+
     public PullRequest(String title, String state, Creator creator,
                        String createdAt, String pullUrl, int number) {
         this.title = title;
@@ -74,5 +78,12 @@ public class PullRequest {
 
     public int getNumber() {
         return number;
+    }
+
+    public String getPullRequestType() {
+        if (state.equals(STATE_OPEN)) {
+            return STATE_OPEN;
+        }
+        return (mergedAt == null) ? STATE_CLOSE : STATE_MERGE;
     }
 }
