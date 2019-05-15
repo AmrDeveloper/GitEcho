@@ -7,7 +7,7 @@ public interface LoginContract {
     public interface Model {
         boolean isUsernameValid(String username);
 
-        void makeLoginRequest(Context context, String url, OnLoginListener listener);
+        void makeLoginRequest(Context context, String username, OnLoginListener listener);
     }
 
     public interface View {

@@ -2,7 +2,6 @@ package com.amrdeveloper.gitecho.presenter;
 
 import android.content.Context;
 
-import com.amrdeveloper.gitecho.utils.UrlCreator;
 import com.amrdeveloper.gitecho.model.LoginContract;
 import com.amrdeveloper.gitecho.model.LoginModel;
 import com.amrdeveloper.gitecho.model.OnLoginListener;
@@ -25,9 +24,8 @@ public class LoginPresenter
     public void onStartLogin(String username) {
         boolean isValidUsername = model.isUsernameValid(username);
         if(isValidUsername){
-            String url = UrlCreator.userUrl(username);
             view.showProgressBar();
-            model.makeLoginRequest(context,url,this);
+            model.makeLoginRequest(context,username,this);
         }else{
             view.hideProgressBar();
         }

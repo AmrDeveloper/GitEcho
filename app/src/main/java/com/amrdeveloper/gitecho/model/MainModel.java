@@ -23,6 +23,8 @@ public class MainModel implements MainContract.Model {
                     public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
                         if (response.body() != null) {
                             listener.onLoadingSuccess(response.body());
+                        }else{
+                            listener.onLoadingFailure();
                         }
                     }
 

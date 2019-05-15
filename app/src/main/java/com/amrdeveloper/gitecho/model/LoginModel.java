@@ -2,13 +2,12 @@ package com.amrdeveloper.gitecho.model;
 
 import android.content.Context;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.amrdeveloper.gitecho.RetrofitClient;
+import com.amrdeveloper.gitecho.object.User;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginModel implements LoginContract.Model {
 
@@ -18,20 +17,25 @@ public class LoginModel implements LoginContract.Model {
     }
 
     @Override
-    public void makeLoginRequest(Context context, String url, OnLoginListener listener) {
-        RequestQueue queue = Volley.newRequestQueue(context);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                response -> {
-                    try {
-                        JSONObject result = new JSONObject(response);
-                        String login = result.getString("login");
-                        listener.onLoginSuccess(login);
-                    } catch (JSONException e) {
+    public void makeLoginRequest(Context context, String username, OnLoginListener listener) {
+        RetrofitClient.getInstance()
+                .getGithubService()
+                .getOneUser(username)
+                .enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if(response.body() != null){
+                            User login = response.body();
+                            listener.onLoginSuccess(login.getUsername());
+                        }else{
+                            listener.onLoginFailure();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
                         listener.onLoginFailure();
                     }
-                }, error -> {
-            listener.onLoginFailure();
-        });
-        queue.add(stringRequest);
+                });
     }
 }
