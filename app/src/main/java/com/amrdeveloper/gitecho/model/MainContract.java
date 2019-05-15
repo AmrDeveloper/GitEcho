@@ -9,7 +9,7 @@ import java.util.List;
 public interface MainContract {
 
     public interface Model {
-        void loadingDataFromApi(Context context, String url, OnLoadListener listener);
+        void loadingDataFromApi(Context context, String username, OnLoadListener listener);
     }
 
     public interface View {
