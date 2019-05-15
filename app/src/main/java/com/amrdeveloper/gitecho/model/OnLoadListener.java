@@ -1,10 +1,9 @@
 package com.amrdeveloper.gitecho.model;
 
+import android.arch.paging.PagedList;
+
 import com.amrdeveloper.gitecho.object.Repository;
 
-import java.util.List;
-
 public interface OnLoadListener {
-    void onLoadingSuccess(List<Repository> repositoryList);
-    void onLoadingFailure();
+    void onLoadFinish(PagedList<Repository> repositories);
 }

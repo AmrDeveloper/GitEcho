@@ -1,21 +1,19 @@
 package com.amrdeveloper.gitecho.model;
 
-import android.content.Context;
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.paging.PagedList;
 
+import com.amrdeveloper.gitecho.RepoViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
-
-import java.util.List;
 
 public interface MainContract {
 
     public interface Model {
-        void loadingDataFromApi(Context context, String username, OnLoadListener listener);
+        void loadingDataFromApi(RepoViewModel viewModel, LifecycleOwner owner, OnLoadListener listener);
     }
 
     public interface View {
-        void onLoadingSuccess(List<Repository> repositoryList);
-
-        void onLoadingFailure();
+        void onLoadFinish(PagedList<Repository> repositories);
 
         void showProgressBar();
 
