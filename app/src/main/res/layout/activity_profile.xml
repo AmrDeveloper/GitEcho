@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +16,9 @@
                 android:id="@+id/avatarImg"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="#000" />
+                android:background="#000"
+                android:contentDescription="@string/user_avatar"
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/nameTxt"
@@ -65,9 +66,9 @@
                 tools:text="Repositories : 15" />
 
             <TextView
-                android:id="@+id/starTxt"
+                android:id="@+id/gistTxt"
                 style="@style/ProfileTextStyle"
-                tools:text="Stars : 4" />
+                tools:text="Gists : 4" />
 
             <TextView
                 android:id="@+id/followersTxt"

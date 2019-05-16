@@ -9,7 +9,9 @@ import com.amrdeveloper.gitecho.model.MainModel;
 import com.amrdeveloper.gitecho.model.OnLoadListener;
 import com.amrdeveloper.gitecho.object.Repository;
 
-public class MainPresenter implements MainContract.Presenter, OnLoadListener {
+public class MainPresenter
+        implements MainContract.Presenter,
+        OnLoadListener<PagedList<Repository>> {
 
     private MainContract.Model model;
     private MainContract.View view;

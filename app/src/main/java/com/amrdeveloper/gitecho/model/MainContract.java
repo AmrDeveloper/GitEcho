@@ -21,8 +21,6 @@ public interface MainContract {
     }
 
     public interface Presenter {
-
         void startLoadingData(String username);
-
     }
 }
