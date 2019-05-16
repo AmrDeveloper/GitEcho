@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
@@ -22,6 +21,7 @@ import com.amrdeveloper.gitecho.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
+    private String username;
     private MainPresenter presenter;
     private ActivityMainBinding binding;
     private RepoPagedListAdapter repoRecyclerAdapter;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
+        username = intent.getStringExtra("username");
 
         setRecyclerViewSettings();
         setActivityTitle(username);
@@ -56,8 +56,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuId = item.getItemId();
         if (menuId == R.id.profileMenu) {
-            //TODO : Go To ProfileActivity
-            Toast.makeText(this, "Open Profile Activity", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,ProfileActivity.class);
+            intent.putExtra("username",username);
+            startActivity(intent);
         }
         return true;
     }
@@ -73,12 +74,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setTitle("@" + username);
     }
 
-
     @Override
     public void onLoadFinish(PagedList<Repository> repositories) {
         repoRecyclerAdapter.submitList(repositories);
     }
-
 
     @Override
     public void showProgressBar() {
