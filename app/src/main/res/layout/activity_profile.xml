@@ -66,11 +66,6 @@
                 tools:text="Repositories : 15" />
 
             <TextView
-                android:id="@+id/gistTxt"
-                style="@style/ProfileTextStyle"
-                tools:text="Gists : 4" />
-
-            <TextView
                 android:id="@+id/followersTxt"
                 style="@style/ProfileTextStyle"
                 tools:text="Followers : 15" />
@@ -79,6 +74,11 @@
                 android:id="@+id/followingTxt"
                 style="@style/ProfileTextStyle"
                 tools:text="Following : 1" />
+            
+            <TextView
+                android:id="@+id/gistTxt"
+                style="@style/ProfileTextStyle"
+                tools:text="Gists : 4" />
         </LinearLayout>
     </ScrollView>
 </layout>
