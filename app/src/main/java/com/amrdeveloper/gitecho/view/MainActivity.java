@@ -1,7 +1,5 @@
 package com.amrdeveloper.gitecho.view;
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.arch.paging.PagedList;
 import android.content.Intent;
@@ -15,7 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.RepoPagedListAdapter;
+import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.RepoViewModel;
 import com.amrdeveloper.gitecho.databinding.ActivityMainBinding;
 import com.amrdeveloper.gitecho.model.MainContract;
