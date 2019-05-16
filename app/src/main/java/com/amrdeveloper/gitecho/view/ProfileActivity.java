@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.amrdeveloper.gitecho.presenter.ProfilePresenter;
@@ -12,6 +14,7 @@ import com.amrdeveloper.gitecho.databinding.ActivityProfileBinding;
 import com.amrdeveloper.gitecho.model.ProfileContract;
 import com.amrdeveloper.gitecho.object.User;
 import com.amrdeveloper.gitecho.utils.FormatUtils;
+import com.amrdeveloper.gitecho.utils.Session;
 import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
@@ -38,6 +41,25 @@ public class ProfileActivity extends AppCompatActivity
 
     private void setActivityTitle(String username) {
         setTitle(String.format(FormatUtils.USERNAME,username));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.logout_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuId = item.getItemId();
+        if (menuId == R.id.logoutMenu) {
+            Session session = new Session(this);
+            session.logOut();
+
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+        }
+        return true;
     }
 
     @Override
