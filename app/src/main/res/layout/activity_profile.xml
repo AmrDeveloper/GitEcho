@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,111 +21,62 @@
 
             <TextView
                 android:id="@+id/nameTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
+                style="@style/ProfileTextStyle"
                 android:gravity="center"
-                android:padding="10dp"
-                android:shadowRadius="20dp"
-                android:textColor="@color/black"
+                android:padding="@dimen/dimen10dp"
                 tools:text="Amr Hesham" />
 
             <TextView
                 android:id="@+id/bioTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
+                style="@style/ProfileTextStyle"
                 android:gravity="center"
                 android:lines="2"
-                android:padding="5dp"
-                android:textColor="@color/black"
                 tools:text="Self-Taught Software Engineer" />
 
             <TextView
                 android:id="@+id/companyTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
+                style="@style/ProfileTextStyle"
                 android:drawableStart="@drawable/ic_organization"
                 android:drawableLeft="@drawable/ic_organization"
                 android:drawablePadding="@dimen/dimen5dp"
-                android:padding="6dp"
-                android:textColor="@color/black"
                 tools:text="Google, Inc" />
 
             <TextView
                 android:id="@+id/locationTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
+                style="@style/ProfileTextStyle"
                 android:drawableStart="@drawable/ic_location"
                 android:drawableLeft="@drawable/ic_location"
                 android:drawablePadding="@dimen/dimen5dp"
-                android:padding="6dp"
-                android:textColor="@color/black"
                 tools:text="Alexandria, Egypt" />
 
             <TextView
                 android:id="@+id/mailText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ProfileTextStyle"
                 android:autoLink="email"
-                android:background="#ccc"
                 android:drawableStart="@drawable/ic_mail"
                 android:drawableLeft="@drawable/ic_mail"
                 android:drawablePadding="@dimen/dimen5dp"
-                android:padding="6dp"
-                android:textColor="#000"
                 android:textColorLink="@color/black"
                 tools:text="amr@Developer.com.eg" />
 
             <TextView
                 android:id="@+id/reposTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
-                android:padding="6dp"
-                android:shadowRadius="20dp"
-                android:textColor="#000"
+                style="@style/ProfileTextStyle"
                 tools:text="Repositories : 15" />
 
             <TextView
                 android:id="@+id/starTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
-                android:padding="6dp"
-                android:shadowRadius="20dp"
-                android:textColor="@color/black"
+                style="@style/ProfileTextStyle"
                 tools:text="Stars : 4" />
 
             <TextView
                 android:id="@+id/followersTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
-                android:padding="6dp"
-                android:shadowRadius="20dp"
-                android:textColor="@color/black"
+                style="@style/ProfileTextStyle"
                 tools:text="Followers : 15" />
 
             <TextView
                 android:id="@+id/followingTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="#ccc"
-                android:padding="6dp"
-                android:shadowRadius="20dp"
-                android:textColor="@color/black"
+                style="@style/ProfileTextStyle"
                 tools:text="Following : 1" />
         </LinearLayout>
     </ScrollView>
