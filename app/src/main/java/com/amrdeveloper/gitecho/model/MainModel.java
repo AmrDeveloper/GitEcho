@@ -2,7 +2,7 @@ package com.amrdeveloper.gitecho.model;
 
 import android.arch.lifecycle.LifecycleOwner;
 
-import com.amrdeveloper.gitecho.RepoViewModel;
+import com.amrdeveloper.gitecho.model.network.RepoViewModel;
 
 public class MainModel implements MainContract.Model {
 

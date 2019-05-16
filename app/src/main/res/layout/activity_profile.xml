@@ -74,7 +74,7 @@
                 android:id="@+id/followingTxt"
                 style="@style/ProfileTextStyle"
                 tools:text="Following : 1" />
-            
+
             <TextView
                 android:id="@+id/gistTxt"
                 style="@style/ProfileTextStyle"

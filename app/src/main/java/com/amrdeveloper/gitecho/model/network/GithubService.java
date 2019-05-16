@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model.network;
 
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.object.User;

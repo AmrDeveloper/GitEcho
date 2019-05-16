@@ -2,7 +2,7 @@ package com.amrdeveloper.gitecho.model;
 
 import android.content.Context;
 
-import com.amrdeveloper.gitecho.RetrofitClient;
+import com.amrdeveloper.gitecho.model.network.RetrofitClient;
 import com.amrdeveloper.gitecho.object.User;
 
 import retrofit2.Call;
