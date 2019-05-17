@@ -17,7 +17,13 @@ public interface GithubService {
 
     @GET("users/{user}/repos")
     Call<List<Repository>> userListRepos(
-            @Path("user") String user
-            , @Query("page") int pageNum,
+            @Path("user") String user,
+            @Query("page") int pageNum,
             @Query("per_page") int pageSize);
+
+    @GET("repos/{repository}/forks")
+    Call<List<Repository>> repoForksRepos(
+        @Path("repository") String repoName,
+        @Query("page") int pageNum,
+        @Query("per_page") int pageSize);
 }
