@@ -56,10 +56,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuId = item.getItemId();
-        if (menuId == R.id.profileMenu) {
-            Intent intent = new Intent(this,ProfileActivity.class);
-            intent.putExtra("username",username);
-            startActivity(intent);
+        switch (menuId){
+            case R.id.profileMenu:{
+                Intent intent = new Intent(this,ProfileActivity.class);
+                intent.putExtra("username",username);
+                startActivity(intent);
+                break;
+            }
+            case R.id.searchMenu:{
+                //TODO : Filter Repo Recycler View
+                break;
+            }
         }
         return true;
     }

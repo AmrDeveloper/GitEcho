@@ -33,7 +33,7 @@ public class MainPresenter
 
     @Override
     public void onLoadFinish(PagedList<Repository> repositories) {
-        view.hideProgressBar();
         view.onLoadFinish(repositories);
+        view.hideProgressBar();
     }
 }
