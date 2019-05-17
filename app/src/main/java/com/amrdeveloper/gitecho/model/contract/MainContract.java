@@ -1,8 +1,9 @@
-package com.amrdeveloper.gitecho.model;
+package com.amrdeveloper.gitecho.model.contract;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
+import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
 

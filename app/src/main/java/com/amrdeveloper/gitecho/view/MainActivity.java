@@ -16,7 +16,7 @@ import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
 import com.amrdeveloper.gitecho.databinding.ActivityMainBinding;
-import com.amrdeveloper.gitecho.model.MainContract;
+import com.amrdeveloper.gitecho.model.contract.MainContract;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.presenter.MainPresenter;
 import com.amrdeveloper.gitecho.utils.FormatUtils;

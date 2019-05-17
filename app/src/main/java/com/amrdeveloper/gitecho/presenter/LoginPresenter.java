@@ -2,9 +2,9 @@ package com.amrdeveloper.gitecho.presenter;
 
 import android.content.Context;
 
-import com.amrdeveloper.gitecho.model.LoginContract;
+import com.amrdeveloper.gitecho.model.contract.LoginContract;
 import com.amrdeveloper.gitecho.model.LoginModel;
-import com.amrdeveloper.gitecho.model.OnLoginListener;
+import com.amrdeveloper.gitecho.model.listener.OnLoginListener;
 
 public class LoginPresenter
         implements LoginContract.Presenter

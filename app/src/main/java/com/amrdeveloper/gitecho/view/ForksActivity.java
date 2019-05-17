@@ -8,22 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
-import com.amrdeveloper.gitecho.model.ForksContract;
-import com.amrdeveloper.gitecho.model.network.RetrofitClient;
+import com.amrdeveloper.gitecho.model.contract.ForksContract;
 import com.amrdeveloper.gitecho.presenter.ForksPresenter;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.databinding.ActivityForksBinding;
 import com.amrdeveloper.gitecho.model.network.forks.ForksViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ForksActivity extends AppCompatActivity implements ForksContract.View {
 

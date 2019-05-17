@@ -1,5 +1,7 @@
 package com.amrdeveloper.gitecho.model;
 
+import com.amrdeveloper.gitecho.model.contract.ProfileContract;
+import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.model.network.RetrofitClient;
 import com.amrdeveloper.gitecho.object.User;
 

@@ -2,6 +2,8 @@ package com.amrdeveloper.gitecho.model;
 
 import android.content.Context;
 
+import com.amrdeveloper.gitecho.model.contract.LoginContract;
+import com.amrdeveloper.gitecho.model.listener.OnLoginListener;
 import com.amrdeveloper.gitecho.model.network.RetrofitClient;
 import com.amrdeveloper.gitecho.object.User;
 

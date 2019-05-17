@@ -1,7 +1,7 @@
 package com.amrdeveloper.gitecho.presenter;
 
-import com.amrdeveloper.gitecho.model.OnLoadListener;
-import com.amrdeveloper.gitecho.model.ProfileContract;
+import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
+import com.amrdeveloper.gitecho.model.contract.ProfileContract;
 import com.amrdeveloper.gitecho.model.ProfileModel;
 import com.amrdeveloper.gitecho.object.User;
 

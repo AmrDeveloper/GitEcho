@@ -4,9 +4,9 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
-import com.amrdeveloper.gitecho.model.MainContract;
+import com.amrdeveloper.gitecho.model.contract.MainContract;
 import com.amrdeveloper.gitecho.model.MainModel;
-import com.amrdeveloper.gitecho.model.OnLoadListener;
+import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.object.Repository;
 
 public class MainPresenter

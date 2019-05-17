@@ -11,7 +11,7 @@ import android.view.View;
 import com.amrdeveloper.gitecho.presenter.ProfilePresenter;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.ActivityProfileBinding;
-import com.amrdeveloper.gitecho.model.ProfileContract;
+import com.amrdeveloper.gitecho.model.contract.ProfileContract;
 import com.amrdeveloper.gitecho.object.User;
 import com.amrdeveloper.gitecho.utils.FormatUtils;
 import com.amrdeveloper.gitecho.utils.Session;
