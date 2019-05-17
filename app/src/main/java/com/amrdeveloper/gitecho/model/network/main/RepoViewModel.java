@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho.model.network;
+package com.amrdeveloper.gitecho.model.network.main;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;

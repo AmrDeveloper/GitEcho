@@ -14,7 +14,7 @@ import android.widget.SearchView;
 
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
-import com.amrdeveloper.gitecho.model.network.RepoViewModel;
+import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
 import com.amrdeveloper.gitecho.databinding.ActivityMainBinding;
 import com.amrdeveloper.gitecho.model.MainContract;
 import com.amrdeveloper.gitecho.object.Repository;

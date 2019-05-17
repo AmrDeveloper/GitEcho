@@ -3,7 +3,7 @@ package com.amrdeveloper.gitecho.presenter;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
-import com.amrdeveloper.gitecho.model.network.RepoViewModel;
+import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
 import com.amrdeveloper.gitecho.model.MainContract;
 import com.amrdeveloper.gitecho.model.MainModel;
 import com.amrdeveloper.gitecho.model.OnLoadListener;

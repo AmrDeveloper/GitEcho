@@ -83,9 +83,9 @@ public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPaged
             }
 
             binding.repoForkTxt.setOnClickListener(v -> {
-                String repoFullName = repository.getFullName();
                 Intent intent = new Intent(context, ForksActivity.class);
-                intent.putExtra("repository_name",repoFullName);
+                intent.putExtra("username",repository.getRepoOwner().getOwnerName());
+                intent.putExtra("repoName",repository.getName());
                 context.startActivity(intent);
             });
         }

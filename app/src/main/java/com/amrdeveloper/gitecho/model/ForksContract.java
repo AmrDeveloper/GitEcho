@@ -1,16 +1,15 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
-import com.amrdeveloper.gitecho.model.OnLoadListener;
-import com.amrdeveloper.gitecho.model.network.RepoViewModel;
+import com.amrdeveloper.gitecho.model.network.forks.ForksViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
 
 public interface ForksContract {
 
     public interface Model{
-        void loadingDataFromApi(RepoViewModel viewModel, LifecycleOwner owner, OnLoadListener listener);
+        void loadingDataFromApi(ForksViewModel viewModel, LifecycleOwner owner, OnLoadListener listener);
     }
 
     public interface View{

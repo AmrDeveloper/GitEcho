@@ -21,9 +21,10 @@ public interface GithubService {
             @Query("page") int pageNum,
             @Query("per_page") int pageSize);
 
-    @GET("repos/{repository}/forks")
-    Call<List<Repository>> repoForksRepos(
-        @Path("repository") String repoName,
-        @Query("page") int pageNum,
-        @Query("per_page") int pageSize);
+    @GET("repos/{user}/{repo}/forks")
+    Call<List<Repository>> getForksRepos(
+            @Path("user") String username,
+            @Path("repo") String repoName,
+            @Query("page") int pageNum,
+            @Query("per_page") int pageSize);
 }

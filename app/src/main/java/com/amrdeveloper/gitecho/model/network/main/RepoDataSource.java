@@ -1,8 +1,9 @@
-package com.amrdeveloper.gitecho.model.network;
+package com.amrdeveloper.gitecho.model.network.main;
 
 import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;
 
+import com.amrdeveloper.gitecho.model.network.RetrofitClient;
 import com.amrdeveloper.gitecho.object.Repository;
 
 import java.util.List;
