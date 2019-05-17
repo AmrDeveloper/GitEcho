@@ -2,6 +2,7 @@ package com.amrdeveloper.gitecho.adapter;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.RepoListItemBinding;
 import com.amrdeveloper.gitecho.object.Repository;
+import com.amrdeveloper.gitecho.view.ForksActivity;
 
 public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPagedListAdapter.RepoViewHolder> {
 
@@ -79,6 +81,13 @@ public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPaged
                 binding.repoArchivedTxt.setText(context.getString(R.string.archived));
                 binding.repoArchivedTxt.setVisibility(View.VISIBLE);
             }
+
+            binding.repoForkTxt.setOnClickListener(v -> {
+                String repoFullName = repository.getFullName();
+                Intent intent = new Intent(context, ForksActivity.class);
+                intent.putExtra("repository_name",repoFullName);
+                context.startActivity(intent);
+            });
         }
     }
 }
