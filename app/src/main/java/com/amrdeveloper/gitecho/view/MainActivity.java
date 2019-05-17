@@ -18,6 +18,7 @@ import com.amrdeveloper.gitecho.databinding.ActivityMainBinding;
 import com.amrdeveloper.gitecho.model.MainContract;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.presenter.MainPresenter;
+import com.amrdeveloper.gitecho.utils.FormatUtils;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void setActivityTitle(String username) {
-        setTitle("@" + username);
+        setTitle(String.format(FormatUtils.USERNAME,username));
     }
 
     @Override
