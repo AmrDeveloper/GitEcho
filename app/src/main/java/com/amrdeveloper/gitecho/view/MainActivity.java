@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
@@ -50,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search_menu, menu);
         getMenuInflater().inflate(R.menu.profile_menu, menu);
+
+        MenuItem searchViewItem = menu.findItem(R.id.searchMenu);
+
+        final SearchView searchView = (SearchView) searchViewItem.getActionView();
+        searchView.setQueryHint(getString(R.string.filter_result));
+
         return true;
     }
 
@@ -61,10 +68,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 Intent intent = new Intent(this,ProfileActivity.class);
                 intent.putExtra("username",username);
                 startActivity(intent);
-                break;
-            }
-            case R.id.searchMenu:{
-                //TODO : Filter Repo Recycler View
                 break;
             }
         }
