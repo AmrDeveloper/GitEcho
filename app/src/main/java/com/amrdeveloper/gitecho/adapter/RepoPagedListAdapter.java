@@ -63,7 +63,7 @@ public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPaged
         }
 
         private void bingRepository(Repository repository) {
-            binding.repoNameTxt.setText(repository.getName());
+            binding.repoNameTxt.setText(repository.getFullName());
             binding.repoDescTxt.setText(repository.getDescription());
             binding.repoLangTxt.setText(repository.getMainLanguage());
             binding.repoStarTxt.setText(String.valueOf(repository.getStarNum()));
@@ -79,7 +79,6 @@ public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPaged
                 binding.repoArchivedTxt.setText(context.getString(R.string.archived));
                 binding.repoArchivedTxt.setVisibility(View.VISIBLE);
             }
-
         }
     }
 }
