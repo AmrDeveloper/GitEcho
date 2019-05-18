@@ -64,7 +64,7 @@ public class StarRecyclerAdapter extends PagedListAdapter<Stargazer,StarRecycler
 
         private void bindStargazer(Stargazer stargazer){
             binding.username.setText(stargazer.getUsername());
-            Picasso.get().load(stargazer.getAvatarUrl()).into(binding.avatarImg);
+            Picasso.get().load(stargazer.getAvatarUrl()).fit().into(binding.avatarImg);
         }
     }
 }

@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity
         binding.reposTxt.setText(String.format(Locale.ENGLISH,FormatUtils.REPOSITORIES,user.getReposNumber()));
         binding.followersTxt.setText(String.format(Locale.ENGLISH,FormatUtils.FOLLOWERS,user.getFollowersNum()));
         binding.followingTxt.setText(String.format(Locale.ENGLISH,FormatUtils.FOLLOWING,user.getFollowingNum()));
-        Picasso.get().load(user.getAvatarUrl()).into(binding.avatarImg);
+        Picasso.get().load(user.getAvatarUrl()).fit().into(binding.avatarImg);
 
         //Bind Company Name
         String company = user.getCompany();

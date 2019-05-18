@@ -72,7 +72,7 @@ public class UserReyclerAdapter extends RecyclerView.Adapter<UserReyclerAdapter.
             binding.userLoginTxt.setText(user.getUsername());
             binding.userBioTxt.setText(user.getBiography());
             binding.userLocationTxt.setText(user.getLocation());
-            Picasso.get().load(user.getAvatarUrl()).into(binding.userAvatarImg);
+            Picasso.get().load(user.getAvatarUrl()).fit().into(binding.userAvatarImg);
         }
     }
 }
