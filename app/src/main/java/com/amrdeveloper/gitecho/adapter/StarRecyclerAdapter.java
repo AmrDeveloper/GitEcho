@@ -26,7 +26,7 @@ public class StarRecyclerAdapter extends PagedListAdapter<Stargazer,StarRecycler
     @NonNull
     @Override
     public StarViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        int layoutID = R.layout.repo_list_item;
+        int layoutID = R.layout.star_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         final boolean shouldAttachToParentImmediately = false;
         StarListItemBinding binding = DataBindingUtil.inflate(inflater, layoutID, viewGroup, shouldAttachToParentImmediately);
