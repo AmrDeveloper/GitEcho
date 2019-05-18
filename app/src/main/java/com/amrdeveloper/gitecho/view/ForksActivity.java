@@ -23,7 +23,6 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Vi
     private String repositoryName;
     private ActivityForksBinding binding;
     private ForksContract.Presenter presenter;
-
     private RepoPagedListAdapter repoRecyclerAdapter;
 
     @Override

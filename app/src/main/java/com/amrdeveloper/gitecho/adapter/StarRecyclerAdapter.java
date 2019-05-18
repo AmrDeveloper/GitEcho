@@ -18,7 +18,7 @@ public class StarRecyclerAdapter extends PagedListAdapter<Stargazer,StarRecycler
 
     private Context context;
 
-    protected StarRecyclerAdapter(Context context) {
+    public StarRecyclerAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }
