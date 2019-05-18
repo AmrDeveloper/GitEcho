@@ -10,7 +10,7 @@ public class StarsModel implements StarsContract.Model {
 
     @Override
     public void loadingDataFromApi(StarsViewModel viewModel, LifecycleOwner owner, OnLoadListener listener) {
-        //viewModel.getItemPagedList().observe(owner, listener::onLoadFinish);
+        viewModel.getItemPagedList().observe(owner, listener::onLoadFinish);
     }
 
 }
