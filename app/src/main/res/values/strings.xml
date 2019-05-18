@@ -13,5 +13,6 @@
     <string name="profile">Profile</string>
     <string name="search">Search</string>
     <string name="archived">Archived</string>
+    <string name="forks">Forks</string>
     <string name="filter_result">Filter Result</string>
 </resources>
