@@ -21,7 +21,6 @@
                 android:layout_width="@dimen/dimen75dp"
                 android:layout_height="@dimen/dimen75dp"
                 android:contentDescription="@string/issue_icon"
-                android:background="@color/black"
                 android:padding="@dimen/dimen5dp" />
 
             <TextView
