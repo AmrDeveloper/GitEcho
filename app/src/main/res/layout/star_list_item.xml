@@ -16,12 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/avatarImg"
                 android:layout_width="@dimen/dimen75dp"
                 android:layout_height="@dimen/dimen75dp"
                 android:contentDescription="@string/issue_icon"
-                android:padding="@dimen/dimen5dp" />
+                android:padding="@dimen/dimen5dp"
+                app:civ_border_color="@color/black"
+                app:civ_border_width="@dimen/dimen2dp" />
 
             <TextView
                 android:id="@+id/username"
