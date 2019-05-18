@@ -1,6 +1,7 @@
 package com.amrdeveloper.gitecho.model.network;
 
 import com.amrdeveloper.gitecho.object.Repository;
+import com.amrdeveloper.gitecho.object.Stargazer;
 import com.amrdeveloper.gitecho.object.User;
 
 import java.util.List;
@@ -18,6 +19,13 @@ public interface GithubService {
     @GET("users/{user}/repos")
     Call<List<Repository>> userListRepos(
             @Path("user") String user,
+            @Query("page") int pageNum,
+            @Query("per_page") int pageSize);
+
+    @GET("repos/{user}/{repo}/stargazers")
+    Call<List<Stargazer>> getStarsRepos(
+            @Path("user") String username,
+            @Path("repo") String repoName,
             @Query("page") int pageNum,
             @Query("per_page") int pageSize);
 

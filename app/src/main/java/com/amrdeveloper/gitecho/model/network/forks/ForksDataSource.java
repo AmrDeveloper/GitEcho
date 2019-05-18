@@ -15,20 +15,20 @@ import retrofit2.Response;
 public class ForksDataSource extends PageKeyedDataSource<Integer, Repository> {
 
     private String username;
-    private String repoName;
+    private String repositoryName;
     private static final int PAGE_NUM = 1;
     public static final int PAGE_SIZE = 25;
 
-    public ForksDataSource(String username,String repoName){
+    public ForksDataSource(String username,String repositoryName){
         this.username = username;
-        this.repoName = repoName;
+        this.repositoryName = repositoryName;
     }
 
     @Override
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, Repository> callback) {
         RetrofitClient.getInstance()
                 .getGithubService()
-                .getForksRepos(username,repoName,PAGE_NUM,PAGE_SIZE)
+                .getForksRepos(username,repositoryName,PAGE_NUM,PAGE_SIZE)
                 .enqueue(new Callback<List<Repository>>() {
                     @Override
                     public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
@@ -53,7 +53,7 @@ public class ForksDataSource extends PageKeyedDataSource<Integer, Repository> {
     public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Repository> callback) {
         RetrofitClient.getInstance()
                 .getGithubService()
-                .getForksRepos(username,repoName,params.key,PAGE_SIZE)
+                .getForksRepos(username,repositoryName,params.key,PAGE_SIZE)
                 .enqueue(new Callback<List<Repository>>() {
                     @Override
                     public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
@@ -74,7 +74,7 @@ public class ForksDataSource extends PageKeyedDataSource<Integer, Repository> {
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Repository> callback) {
         RetrofitClient.getInstance()
                 .getGithubService()
-                .getForksRepos(username,repoName,params.key,PAGE_SIZE)
+                .getForksRepos(username,repositoryName,params.key,PAGE_SIZE)
                 .enqueue(new Callback<List<Repository>>() {
                     @Override
                     public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
