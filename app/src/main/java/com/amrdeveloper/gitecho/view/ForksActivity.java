@@ -34,7 +34,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Vi
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
-        repositoryName = intent.getStringExtra("repoName");
+        repositoryName = intent.getStringExtra("repositoryName");
 
         ForksViewModel.setRequestData(username,repositoryName);
         ForksViewModel itemViewModel = ViewModelProviders.of(this).get(ForksViewModel.class);
