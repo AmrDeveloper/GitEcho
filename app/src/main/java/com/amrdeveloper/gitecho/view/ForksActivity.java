@@ -40,8 +40,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Vi
         ForksViewModel itemViewModel = ViewModelProviders.of(this).get(ForksViewModel.class);
 
         presenter = new ForksPresenter(this,itemViewModel,this);
-        presenter.startLoadingData(repositoryName);
-
+        presenter.startLoadingData();
     }
 
     private void setRecyclerViewSettings() {
