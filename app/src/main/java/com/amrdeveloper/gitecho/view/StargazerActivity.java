@@ -23,6 +23,6 @@ public class StargazerActivity extends AppCompatActivity {
         username = intent.getStringExtra("username");
         repositoryName = intent.getStringExtra("repositoryName");
 
-        
+
     }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/starCardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen75dp"
+        app:cardCornerRadius="@dimen/dimen5dp"
+        app:cardElevation="@dimen/dimen2dp"
+        app:cardUseCompatPadding="true"
+        app:elevation="@dimen/dimen5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/avatarImg"
+                android:layout_width="@dimen/dimen75dp"
+                android:layout_height="@dimen/dimen75dp"
+                android:contentDescription="@string/issue_icon"
+                android:background="@color/black"
+                android:padding="@dimen/dimen5dp" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen75dp"
+                android:layout_toEndOf="@id/avatarImg"
+                android:layout_toRightOf="@id/avatarImg"
+                android:gravity="center|start"
+                android:padding="@dimen/dimen5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen15sp"
+                android:textStyle="bold"
+                tools:text="Pull Title" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>
