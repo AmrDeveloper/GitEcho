@@ -26,7 +26,7 @@ public class ForksPresenter
     }
 
     @Override
-    public void startLoadingData(String username) {
+    public void startLoadingData() {
         view.showProgressBar();
         model.loadingDataFromApi(viewModel,lifecycleOwner,this);
     }

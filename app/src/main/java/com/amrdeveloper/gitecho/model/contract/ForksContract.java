@@ -22,6 +22,6 @@ public interface ForksContract {
     }
 
     public interface Presenter{
-        void startLoadingData(String username);
+        void startLoadingData();
     }
 }
