@@ -32,7 +32,7 @@ public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPaged
         LayoutInflater inflater = LayoutInflater.from(context);
         final boolean shouldAttachToParentImmediately = false;
         RepoListItemBinding binding = DataBindingUtil.inflate(inflater, layoutID, viewGroup, shouldAttachToParentImmediately);
-        return new RepoPagedListAdapter.RepoViewHolder(binding);
+        return new RepoViewHolder(binding);
     }
 
     @Override
