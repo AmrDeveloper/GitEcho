@@ -9,17 +9,17 @@ import com.amrdeveloper.gitecho.object.Repository;
 public class ForksDataSourceFactory extends DataSource.Factory {
 
     private String username;
-    private String repoName;
+    private String repositoryName;
     private MutableLiveData<PageKeyedDataSource<Integer, Repository>> repoLiveDataSource = new MutableLiveData<>();
 
-    public ForksDataSourceFactory(String username,String repoName){
+    public ForksDataSourceFactory(String username,String repositoryName){
         this.username = username;
-        this.repoName = repoName;
+        this.repositoryName = repositoryName;
     }
 
     @Override
     public DataSource create() {
-        ForksDataSource itemDataSource = new ForksDataSource(username,repoName);
+        ForksDataSource itemDataSource = new ForksDataSource(username,repositoryName);
         repoLiveDataSource.postValue(itemDataSource);
         return itemDataSource;
     }
