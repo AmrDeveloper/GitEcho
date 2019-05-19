@@ -22,6 +22,7 @@ public class RepoViewModel extends ViewModel {
                 (new PagedList.Config.Builder())
                         .setEnablePlaceholders(false)
                         .setPageSize(RepoDataSource.PAGE_SIZE)
+                        .setInitialLoadSizeHint(RepoDataSource.INITIAL_LOAD_SIZE)
                         .build();
 
         itemPagedList = (new LivePagedListBuilder<>(itemDataSourceFactory, config)).build();
