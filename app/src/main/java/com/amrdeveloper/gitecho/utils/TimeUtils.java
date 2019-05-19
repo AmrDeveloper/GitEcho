@@ -1,3 +1,5 @@
+package com.amrdeveloper.gitecho.utils;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
