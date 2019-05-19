@@ -19,6 +19,12 @@ public class Repository {
     @SerializedName("language")
     private String mainLanguage;
 
+    @SerializedName("created_at")
+    private String createdAt;
+
+    @SerializedName("updated_at")
+    private String updatedAt;
+
     @SerializedName("license")
     private License license;
 
@@ -38,14 +44,17 @@ public class Repository {
     private boolean isArchived;
 
     public Repository(String name, String fullName, Owner repoOwner,
-                      String description, String mainLanguage, License license,
-                      int starNum, int forkNum, int openIssuesNum,
-                      boolean isForked, boolean isArchived) {
+                      String description, String mainLanguage, String createdAt,
+                      String updatedAt, License license, int starNum,
+                      int forkNum, int openIssuesNum, boolean isForked,
+                      boolean isArchived) {
         this.name = name;
         this.fullName = fullName;
         this.repoOwner = repoOwner;
         this.description = description;
         this.mainLanguage = mainLanguage;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
         this.license = license;
         this.starNum = starNum;
         this.forkNum = forkNum;
@@ -72,6 +81,14 @@ public class Repository {
 
     public String getMainLanguage() {
         return mainLanguage;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
     public License getLicense() {
