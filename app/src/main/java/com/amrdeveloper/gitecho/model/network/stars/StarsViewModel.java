@@ -23,6 +23,7 @@ public class StarsViewModel extends ViewModel {
                 (new PagedList.Config.Builder())
                         .setEnablePlaceholders(false)
                         .setPageSize(StarsDataSource.PAGE_SIZE)
+                        .setInitialLoadSizeHint(StarsDataSource.INITIAL_LOAD_SIZE)
                         .build();
 
         itemPagedList = (new LivePagedListBuilder<>(itemDataSourceFactory, config)).build();

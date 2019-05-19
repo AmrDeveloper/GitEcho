@@ -18,6 +18,7 @@ public class StarsDataSource extends PageKeyedDataSource<Integer, Stargazer> {
     private String repositoryName;
     private static final int PAGE_NUM = 1;
     public static final int PAGE_SIZE = 25;
+    public static final int INITIAL_LOAD_SIZE = 50;
 
     public StarsDataSource(String username,String repositoryName){
         this.username = username;
