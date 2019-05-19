@@ -23,6 +23,7 @@ public class ForksViewModel extends ViewModel {
                 (new PagedList.Config.Builder())
                         .setEnablePlaceholders(false)
                         .setPageSize(ForksDataSource.PAGE_SIZE)
+                        .setInitialLoadSizeHint(ForksDataSource.INITIAL_LOAD_SIZE)
                         .build();
 
         itemPagedList = (new LivePagedListBuilder<>(itemDataSourceFactory, config)).build();
