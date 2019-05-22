@@ -15,6 +15,7 @@ import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.RepoListItemBinding;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.view.ForksActivity;
+import com.amrdeveloper.gitecho.view.RepositoryActivity;
 import com.amrdeveloper.gitecho.view.StargazerActivity;
 
 public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPagedListAdapter.RepoViewHolder> {
@@ -82,6 +83,13 @@ public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPaged
                 binding.repoArchivedTxt.setText(context.getString(R.string.archived));
                 binding.repoArchivedTxt.setVisibility(View.VISIBLE);
             }
+
+            binding.repoCardView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, RepositoryActivity.class);
+                intent.putExtra("username",repository.getRepoOwner().getOwnerName());
+                intent.putExtra("repositoryName",repository.getName());
+                context.startActivity(intent);
+            });
 
             binding.repoStarTxt.setOnClickListener(v -> {
                 Intent intent = new Intent(context, StargazerActivity.class);
