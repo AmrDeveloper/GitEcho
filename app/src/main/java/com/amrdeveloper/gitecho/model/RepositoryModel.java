@@ -1,5 +1,6 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model;
 
+import com.amrdeveloper.gitecho.model.contract.RepositoryContract;
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.model.network.RetrofitClient;
 import com.amrdeveloper.gitecho.object.Repository;
@@ -8,7 +9,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RepositoryModel implements RepositoryContract.Model{
+public class RepositoryModel implements RepositoryContract.Model {
 
     @Override
     public void getRepositoryInformation(String username, String repoName, OnLoadListener<Repository> listener) {

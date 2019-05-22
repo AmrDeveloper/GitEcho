@@ -4,17 +4,20 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.RepositoryContract;
-import com.amrdeveloper.gitecho.RepositoryPresenter;
+import com.amrdeveloper.gitecho.model.contract.RepositoryContract;
+import com.amrdeveloper.gitecho.presenter.RepositoryPresenter;
 import com.amrdeveloper.gitecho.databinding.ActivityRepositoryBinding;
 import com.amrdeveloper.gitecho.object.License;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.utils.DateUtils;
+import com.amrdeveloper.gitecho.utils.FormatUtils;
 import com.amrdeveloper.gitecho.utils.UpdateFormatter;
 
 import java.util.Date;
+import java.util.Locale;
 
 public class RepositoryActivity extends AppCompatActivity implements RepositoryContract.View {
 
@@ -39,19 +42,20 @@ public class RepositoryActivity extends AppCompatActivity implements RepositoryC
         binding.repoNameTxt.setText(repository.getFullName());
         binding.repoDescTxt.setText(repository.getDescription());
         binding.repoLangTxt.setText(repository.getMainLanguage());
-        binding.repoStarTxt.setText(String.valueOf(repository.getStarNum()));
-        binding.repoForkTxt.setText(String.valueOf(repository.getForkNum()));
+        binding.repoStarTxt.setText(String.format(Locale.ENGLISH,FormatUtils.STARS,repository.getStarNum()));
+        binding.repoForkTxt.setText(String.format(Locale.ENGLISH,FormatUtils.FORKS,repository.getForkNum()));
 
         License license = repository.getLicense();
         if (license != null) {
             binding.repoLicenseTxt.setText(license.getName());
+        }else{
+            binding.repoLicenseTxt.setVisibility(View.GONE);
         }
 
         String createdAtDate = repository.getCreatedAt();
         String updatedAtDate = repository.getUpdatedAt();
 
-        Date createdDate = DateUtils.formatStringToDate(createdAtDate);
-        String createdAt = DateUtils.formatDateToString(createdDate);
+        String createdAt = UpdateFormatter.getUpdatedFromTime(createdAtDate);
         String updatedAt = UpdateFormatter.getUpdatedFromTime(updatedAtDate);
 
         binding.repoCreatedAtTxt.setText(createdAt);

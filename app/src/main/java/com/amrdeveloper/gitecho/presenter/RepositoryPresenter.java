@@ -1,5 +1,7 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.presenter;
 
+import com.amrdeveloper.gitecho.model.RepositoryModel;
+import com.amrdeveloper.gitecho.model.contract.RepositoryContract;
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.object.Repository;
 

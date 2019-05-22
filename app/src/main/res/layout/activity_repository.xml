@@ -80,7 +80,7 @@
             android:layout_margin="5dp"
             android:background="#fff"
             android:padding="15dp"
-            tools:text="Contributors"
+            android:text="@string/contributors"
             android:drawableLeft="@drawable/ic_peoples"
             android:drawableStart="@drawable/ic_peoples"
             android:drawablePadding="@dimen/dimen5dp"
@@ -96,7 +96,7 @@
             android:drawableLeft="@drawable/ic_tag"
             android:drawableStart="@drawable/ic_tag"
             android:drawablePadding="@dimen/dimen5dp"
-            tools:text="Releases"
+            android:text="@string/releases"
             android:textStyle="bold" />
 
         <TextView

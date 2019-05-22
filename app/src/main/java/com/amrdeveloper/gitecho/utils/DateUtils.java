@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class DateUtils {
@@ -51,7 +52,7 @@ public class DateUtils {
      */
     public static Date formatStringToDate(String date) {
         try {
-            DateFormat dateFormat = new SimpleDateFormat(DATE_PATTERN);
+            DateFormat dateFormat = new SimpleDateFormat(DATE_PATTERN, Locale.ENGLISH);
             return dateFormat.parse(date);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -64,7 +65,7 @@ public class DateUtils {
      * @return : convert date format to DATE_DIFFERENT_FORMAT_PATTERN format
      */
     public static String formatDateToString(Date date) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_DIFFERENT_FORMAT_PATTERN);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_DIFFERENT_FORMAT_PATTERN,Locale.ENGLISH);
         return simpleDateFormat.format(date);
     }
 }
