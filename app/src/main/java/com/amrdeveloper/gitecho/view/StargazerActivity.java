@@ -16,6 +16,7 @@ import com.amrdeveloper.gitecho.model.contract.StarsContract;
 import com.amrdeveloper.gitecho.model.network.stars.StarsViewModel;
 import com.amrdeveloper.gitecho.object.Stargazer;
 import com.amrdeveloper.gitecho.presenter.StarsPresenter;
+import com.amrdeveloper.gitecho.utils.Consts;
 
 public class StargazerActivity extends AppCompatActivity implements StarsContract.View {
 
@@ -32,8 +33,8 @@ public class StargazerActivity extends AppCompatActivity implements StarsContrac
         setRecyclerViewSettings();
 
         Intent intent = getIntent();
-        username = intent.getStringExtra("username");
-        repositoryName = intent.getStringExtra("repositoryName");
+        username = intent.getStringExtra(Consts.USERNAME);
+        repositoryName = intent.getStringExtra(Consts.REPOSITORY_NAME);
 
         StarsViewModel.setRequestData(username,repositoryName);
         StarsViewModel itemViewModel = ViewModelProviders.of(this).get(StarsViewModel.class);

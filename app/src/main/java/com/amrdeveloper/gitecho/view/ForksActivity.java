@@ -16,6 +16,7 @@ import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.databinding.ActivityForksBinding;
 import com.amrdeveloper.gitecho.model.network.forks.ForksViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
+import com.amrdeveloper.gitecho.utils.Consts;
 
 public class ForksActivity extends AppCompatActivity implements ForksContract.View {
 
@@ -32,8 +33,8 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Vi
         setRecyclerViewSettings();
 
         Intent intent = getIntent();
-        username = intent.getStringExtra("username");
-        repositoryName = intent.getStringExtra("repositoryName");
+        username = intent.getStringExtra(Consts.USERNAME);
+        repositoryName = intent.getStringExtra(Consts.REPOSITORY_NAME);
 
         ForksViewModel.setRequestData(username,repositoryName);
         ForksViewModel itemViewModel = ViewModelProviders.of(this).get(ForksViewModel.class);

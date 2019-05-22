@@ -13,6 +13,7 @@ import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.ActivityProfileBinding;
 import com.amrdeveloper.gitecho.model.contract.ProfileContract;
 import com.amrdeveloper.gitecho.object.User;
+import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.utils.FormatUtils;
 import com.amrdeveloper.gitecho.utils.Session;
 import com.squareup.picasso.Picasso;
@@ -31,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile);
 
         Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
+        String username = intent.getStringExtra(Consts.USERNAME);
 
         setActivityTitle(username);
 

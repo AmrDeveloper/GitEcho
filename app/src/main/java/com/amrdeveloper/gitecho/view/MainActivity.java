@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
+import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         Intent intent = getIntent();
-        username = intent.getStringExtra("username");
+        username = intent.getStringExtra(Consts.USERNAME);
 
         setRecyclerViewSettings();
         setActivityTitle(username);
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         switch (menuId){
             case R.id.profileMenu:{
                 Intent intent = new Intent(this,ProfileActivity.class);
-                intent.putExtra("username",username);
+                intent.putExtra(Consts.USERNAME,username);
                 startActivity(intent);
                 break;
             }

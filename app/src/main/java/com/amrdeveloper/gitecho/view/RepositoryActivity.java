@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.model.contract.RepositoryContract;
 import com.amrdeveloper.gitecho.presenter.RepositoryPresenter;
@@ -30,8 +31,8 @@ public class RepositoryActivity extends AppCompatActivity implements RepositoryC
         binding = DataBindingUtil.setContentView(this, R.layout.activity_repository);
 
         Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        String repositoryName = intent.getStringExtra("repositoryName");
+        String username = intent.getStringExtra(Consts.USERNAME);
+        String repositoryName = intent.getStringExtra(Consts.REPOSITORY_NAME);
 
         presenter = new RepositoryPresenter(this);
         presenter.loadRepositoryInformation(username, repositoryName);

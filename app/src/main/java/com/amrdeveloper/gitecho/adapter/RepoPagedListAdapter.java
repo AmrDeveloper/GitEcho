@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.RepoListItemBinding;
 import com.amrdeveloper.gitecho.object.Repository;
+import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.view.ForksActivity;
 import com.amrdeveloper.gitecho.view.RepositoryActivity;
 import com.amrdeveloper.gitecho.view.StargazerActivity;
@@ -86,22 +87,22 @@ public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPaged
 
             binding.repoCardView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, RepositoryActivity.class);
-                intent.putExtra("username",repository.getRepoOwner().getOwnerName());
-                intent.putExtra("repositoryName",repository.getName());
+                intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
+                intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
                 context.startActivity(intent);
             });
 
             binding.repoStarTxt.setOnClickListener(v -> {
                 Intent intent = new Intent(context, StargazerActivity.class);
-                intent.putExtra("username",repository.getRepoOwner().getOwnerName());
-                intent.putExtra("repositoryName",repository.getName());
+                intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
+                intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
                 context.startActivity(intent);
             });
 
             binding.repoForkTxt.setOnClickListener(v -> {
                 Intent intent = new Intent(context, ForksActivity.class);
-                intent.putExtra("username",repository.getRepoOwner().getOwnerName());
-                intent.putExtra("repositoryName",repository.getName());
+                intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
+                intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
                 context.startActivity(intent);
             });
         }

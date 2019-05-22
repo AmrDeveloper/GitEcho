@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.utils.Session;
 import com.amrdeveloper.gitecho.databinding.ActivityLoginBinding;
@@ -69,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     private void goToMainActivity(String username){
         Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra("username",username);
+        intent.putExtra(Consts.USERNAME,username);
         startActivity(intent);
     }
 }
