@@ -1,5 +1,8 @@
 package com.amrdeveloper.gitecho.object;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Repository {
@@ -113,5 +116,16 @@ public class Repository {
 
     public boolean isArchived() {
         return isArchived;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object repository) {
+        return super.equals(repository);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return fullName;
     }
 }
