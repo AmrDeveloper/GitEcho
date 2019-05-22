@@ -55,10 +55,11 @@ public class RepositoryActivity extends AppCompatActivity implements RepositoryC
         String createdAtDate = repository.getCreatedAt();
         String updatedAtDate = repository.getUpdatedAt();
 
-        String createdAt = UpdateFormatter.getUpdatedFromTime(createdAtDate);
+        Date createdDate = DateUtils.formatStringToDate(createdAtDate);
+        String createdAt = DateUtils.formatDateToString(createdDate);
         String updatedAt = UpdateFormatter.getUpdatedFromTime(updatedAtDate);
 
-        binding.repoCreatedAtTxt.setText(createdAt);
+        binding.repoCreatedAtTxt.setText(String.format(FormatUtils.CREATED_AT,createdAt));
         binding.repoUpdatedFromTxt.setText(updatedAt);
     }
 }

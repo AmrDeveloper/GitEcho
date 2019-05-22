@@ -8,4 +8,5 @@ public class FormatUtils {
     public static final String FOLLOWERS = "Followers : %d";
     public static final String FOLLOWING = "Following : %d";
     public static final String REPOSITORIES = "Repositories : %d";
+    public static final String CREATED_AT = "Created At : %s";
 }
