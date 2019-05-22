@@ -87,8 +87,8 @@
             android:layout_margin="5dp"
             android:background="#fff"
             android:padding="15dp"
-            android:drawableLeft="@drawable/ic_versions"
-            android:drawableStart="@drawable/ic_versions"
+            android:drawableLeft="@drawable/ic_tag"
+            android:drawableStart="@drawable/ic_tag"
             android:drawablePadding="@dimen/dimen5dp"
             android:text="Releases"
             android:textStyle="bold" />
