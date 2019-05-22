@@ -37,8 +37,8 @@
             <TextView
                 android:id="@+id/companyTxt"
                 style="@style/ProfileTextStyle"
-                android:drawableStart="@drawable/ic_organization"
-                android:drawableLeft="@drawable/ic_organization"
+                android:drawableStart="@drawable/ic_peoples"
+                android:drawableLeft="@drawable/ic_peoples"
                 android:drawablePadding="@dimen/dimen5dp"
                 tools:text="Google, Inc" />
 

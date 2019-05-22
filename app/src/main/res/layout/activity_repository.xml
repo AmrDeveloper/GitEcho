@@ -20,6 +20,9 @@
             android:padding="15dp"
             android:text="AmrDeveloper/Android"
             android:textSize="20sp"
+            android:drawableLeft="@drawable/ic_repo"
+            android:drawableStart="@drawable/ic_repo"
+            android:drawablePadding="@dimen/dimen5dp"
             android:textStyle="bold"
             tools:text="AmrDeveloper/Android" />
 
@@ -48,6 +51,9 @@
             android:layout_margin="5dp"
             android:background="#fff"
             android:padding="15dp"
+            android:drawableLeft="@drawable/ic_star"
+            android:drawableStart="@drawable/ic_star"
+            android:drawablePadding="@dimen/dimen5dp"
             android:text="Stars : 35"
             android:textStyle="bold" />
 
@@ -58,6 +64,9 @@
             android:background="#fff"
             android:padding="15dp"
             android:text="Forks : 35"
+            android:drawableLeft="@drawable/ic_repo_forked"
+            android:drawableStart="@drawable/ic_repo_forked"
+            android:drawablePadding="@dimen/dimen5dp"
             android:textStyle="bold" />
 
         <TextView
@@ -67,6 +76,9 @@
             android:background="#fff"
             android:padding="15dp"
             android:text="Contributors"
+            android:drawableLeft="@drawable/ic_peoples"
+            android:drawableStart="@drawable/ic_peoples"
+            android:drawablePadding="@dimen/dimen5dp"
             android:textStyle="bold" />
 
         <TextView
@@ -75,6 +87,9 @@
             android:layout_margin="5dp"
             android:background="#fff"
             android:padding="15dp"
+            android:drawableLeft="@drawable/ic_versions"
+            android:drawableStart="@drawable/ic_versions"
+            android:drawablePadding="@dimen/dimen5dp"
             android:text="Releases"
             android:textStyle="bold" />
 
