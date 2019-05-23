@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Search Type-->
+    <string-array name="search_type">
+        <item>@string/user</item>
+        <item>@string/repository</item>
+        <item>@string/organization</item>
+    </string-array>
+
+</resources>

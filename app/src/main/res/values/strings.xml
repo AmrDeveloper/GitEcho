@@ -16,6 +16,9 @@
     <string name="forks">Forks</string>
     <string name="Stargazer">Stargazer</string>
     <string name="filter_result">Filter Result</string>
+    <string name="user">User</string>
+    <string name="repository">Repository</string>
+    <string name="organization">Organization</string>
     <string name="contributors">Contributors</string>
     <string name="releases">Releases</string>
 </resources>
