@@ -30,9 +30,7 @@
             android:textAllCaps="false"
             app:civ_border_color="@color/orange"
             app:civ_border_width="@dimen/dimen2dp"
-            app:civ_circle_background_color="@color/gray"
-            app:civ_shadow_color="@color/gray"
-            app:civ_shadow_radius="10" />
+            app:civ_circle_background_color="@color/gray"/>
     </RelativeLayout>
 
     <LinearLayout

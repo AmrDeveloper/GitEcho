@@ -16,4 +16,10 @@
         <item name="android:layout_margin">@dimen/dimen3dp</item>
         <item name="android:background">@color/whiteGray</item>
     </style>
+
+    <!--Dialog Animation-->
+    <style name="DialogAnimationSlide">
+        <item name="android:windowEnterAnimation">@anim/side_left</item>
+        <item name="android:windowExitAnimation">@anim/side_right</item>
+    </style>
 </resources>
