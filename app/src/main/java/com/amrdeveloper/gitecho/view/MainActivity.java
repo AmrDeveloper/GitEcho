@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Dialog dialog = new Dialog(this);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationSlide;
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         MultiSearchDialogBinding binding = DataBindingUtil.setContentView(this,R.layout.multi_search_dialog);
 
         binding.searchButton.setOnClickListener(v -> {

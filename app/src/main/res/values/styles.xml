@@ -18,8 +18,9 @@
     </style>
 
     <!--Dialog Animation-->
-    <style name="DialogAnimationSlide">
+    <style name="DialogAnimationSlide" parent="@android:style/Theme.Dialog">
         <item name="android:windowEnterAnimation">@anim/side_left</item>
         <item name="android:windowExitAnimation">@anim/side_right</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>
