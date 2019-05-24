@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -110,7 +111,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Dialog dialog = new Dialog(this);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationSlide;
-        MultiSearchDialogBinding binding = DataBindingUtil.setContentView(this,R.layout.multi_search_dialog);
+        MultiSearchDialogBinding binding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.multi_search_dialog, null, false);
+        dialog.setContentView(binding.getRoot());
 
         binding.searchButton.setOnClickListener(v -> {
             String searchQuery = binding.searchQuery.getText().toString();
@@ -126,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             Toast.makeText(this, "Start Search", Toast.LENGTH_SHORT).show();
         });
 
-        binding.searchDialogDismiss.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
     }
 }

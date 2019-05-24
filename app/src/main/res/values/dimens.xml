@@ -4,6 +4,7 @@
     <dimen name="dimen3dp">3dp</dimen>
     <dimen name="dimen5dp">5dp</dimen>
     <dimen name="dimen10dp">10dp</dimen>
+    <dimen name="dimen25dp">25dp</dimen>
     <dimen name="dimen50dp">50dp</dimen>
     <dimen name="dimen75dp">75dp</dimen>
     <dimen name="dimen85dp">85dp</dimen>
