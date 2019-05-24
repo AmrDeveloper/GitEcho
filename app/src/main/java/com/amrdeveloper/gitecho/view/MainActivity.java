@@ -13,7 +13,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -127,9 +126,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             Toast.makeText(this, "Start Search", Toast.LENGTH_SHORT).show();
         });
 
-        binding.searchDialogDismiss.setOnClickListener(v -> {
-            dialog.dismiss();
-        });
+        binding.searchDialogDismiss.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
     }
 }
