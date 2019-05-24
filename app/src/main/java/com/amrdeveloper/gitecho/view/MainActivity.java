@@ -127,6 +127,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             Toast.makeText(this, "Start Search", Toast.LENGTH_SHORT).show();
         });
 
+        binding.searchDialogDismiss.setOnClickListener(v -> {
+            dialog.dismiss();
+        });
         dialog.show();
     }
 }

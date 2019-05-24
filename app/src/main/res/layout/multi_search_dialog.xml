@@ -31,6 +31,20 @@
             app:civ_border_color="@color/orange"
             app:civ_border_width="@dimen/dimen2dp"
             app:civ_circle_background_color="@color/gray"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/searchDialogDismiss"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_close"
+            android:textAllCaps="false"
+            android:layout_margin="@dimen/dimen10dp"
+            app:civ_border_color="@color/orange"
+            app:civ_border_width="@dimen/dimen2dp"
+            app:civ_circle_background_color="@color/black"/>
     </RelativeLayout>
 
     <LinearLayout
