@@ -17,7 +17,10 @@ import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.amrdeveloper.gitecho.OrganizationsActivity;
+import com.amrdeveloper.gitecho.UsersActivity;
 import com.amrdeveloper.gitecho.databinding.MultiSearchDialogBinding;
+import com.amrdeveloper.gitecho.object.Type;
 import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
@@ -124,8 +127,29 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
             String[] searchTypeArray = getResources().getStringArray(R.array.search_type);
             int searchTypePosition = binding.searchType.getSelectedItemPosition();
+            String searchTypeStr = searchTypeArray[searchTypePosition].toUpperCase();
+            Type searchType = Type.valueOf(searchTypeStr);
 
-            Toast.makeText(this, "Start Search", Toast.LENGTH_SHORT).show();
+            Class typeActivity = null;
+
+            switch (searchType){
+                case USER:{
+                    typeActivity = UsersActivity.class;
+                    break;
+                }
+                case REPOSITORY:{
+                    typeActivity = RepositoryActivity.class;
+                    break;
+                }
+                case ORGANIZATION: {
+                    typeActivity = OrganizationsActivity.class;
+                    break;
+                }
+            }
+
+            Intent intent = new Intent(this,typeActivity);
+            intent.putExtra(Consts.QUERY,searchQuery);
+            startActivity(intent);
         });
 
         dialog.show();
