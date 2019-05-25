@@ -1,8 +1,10 @@
 package com.amrdeveloper.gitecho.adapter;
 
+import android.arch.paging.PagedListAdapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -12,22 +14,13 @@ import com.amrdeveloper.gitecho.databinding.UserListItemBinding;
 import com.amrdeveloper.gitecho.object.User;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class UserReyclerAdapter extends RecyclerView.Adapter<UserReyclerAdapter.UserViewHolder>{
+public class UserReyclerAdapter extends PagedListAdapter<User, UserReyclerAdapter.UserViewHolder> {
 
     private Context context;
-    private List<User> userList;
 
-    public UserReyclerAdapter(Context context){
+    protected UserReyclerAdapter(Context context) {
+        super(DIFF_CALL_BACK);
         this.context = context;
-        this.userList = new ArrayList<>();
-    }
-
-    public UserReyclerAdapter(Context context,List<User> userList){
-        this.context = context;
-        this.userList = userList;
     }
 
     @NonNull
@@ -36,29 +29,31 @@ public class UserReyclerAdapter extends RecyclerView.Adapter<UserReyclerAdapter.
         int layoutID = R.layout.user_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         final boolean shouldAttachToParentImmediately = false;
-        UserListItemBinding binding = DataBindingUtil.inflate(inflater,layoutID,parent,shouldAttachToParentImmediately);
+        UserListItemBinding binding = DataBindingUtil.inflate(inflater, layoutID, parent, shouldAttachToParentImmediately);
         return new UserViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i) {
-         User currentUser = userList.get(i);
-         userViewHolder.bingUser(currentUser);
+        User currentUser = getItem(i);
+        if(currentUser != null){
+            userViewHolder.bingUser(currentUser);
+        }
     }
 
-    @Override
-    public int getItemCount() {
-        return userList.size();
-    }
+    private static DiffUtil.ItemCallback<User> DIFF_CALL_BACK = new DiffUtil.ItemCallback<User>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull User oldUser, @NonNull User newUser) {
+            return oldUser.getUsername().equals(newUser.getUsername());
+        }
 
-    public void updateRecyclerData(List<User> userList){
-         if(userList != null){
-             this.userList = userList;
-             notifyDataSetChanged();
-         }
-    }
+        @Override
+        public boolean areContentsTheSame(@NonNull User oldUser, @NonNull User newUser) {
+            return oldUser.equals(newUser);
+        }
+    };
 
-    class UserViewHolder extends RecyclerView.ViewHolder{
+    class UserViewHolder extends RecyclerView.ViewHolder {
 
         private UserListItemBinding binding;
 
@@ -67,7 +62,7 @@ public class UserReyclerAdapter extends RecyclerView.Adapter<UserReyclerAdapter.
             this.binding = binding;
         }
 
-        private void bingUser(User user){
+        private void bingUser(User user) {
             binding.userNameTxt.setText(user.getName());
             binding.userLoginTxt.setText(user.getUsername());
             binding.userBioTxt.setText(user.getBiography());
