@@ -1,8 +1,10 @@
 package com.amrdeveloper.gitecho.adapter;
 
+import android.arch.paging.PagedListAdapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -11,22 +13,13 @@ import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.IssueListItemBinding;
 import com.amrdeveloper.gitecho.object.Issue;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdapter.IssueViewHolder> {
+public class IssueRecyclerAdapter extends PagedListAdapter<Issue,IssueRecyclerAdapter.IssueViewHolder> {
 
     private Context context;
-    private List<Issue> issueList;
 
-    public IssueRecyclerAdapter(Context context) {
+    protected IssueRecyclerAdapter(Context context) {
+        super(DIFF_CALL_BACK);
         this.context = context;
-        this.issueList = new ArrayList<>();
-    }
-
-    public IssueRecyclerAdapter(Context context, List<Issue> issueList) {
-        this.context = context;
-        this.issueList = issueList;
     }
 
     @NonNull
@@ -41,19 +34,21 @@ public class IssueRecyclerAdapter extends RecyclerView.Adapter<IssueRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull IssueViewHolder issueViewHolder, int i) {
-        Issue currentIssue = issueList.get(i);
-        issueViewHolder.bindIssue(currentIssue);
+        Issue currentIssue = getItem(i);
+        if(currentIssue != null) {
+            issueViewHolder.bindIssue(currentIssue);
+        }
     }
 
-    @Override
-    public int getItemCount() {
-        return issueList.size();
-    }
+    private static DiffUtil.ItemCallback<Issue> DIFF_CALL_BACK = new DiffUtil.ItemCallback<Issue>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Issue oldIssue, @NonNull Issue newIssue) {
+            return oldIssue.getIssueUrl().equals(newIssue);
+        }
 
-    private void updateRecyclerData(List<Issue> issueList) {
-        if (issueList != null) {
-            this.issueList = issueList;
-            notifyDataSetChanged();
+        @Override
+        public boolean areContentsTheSame(@NonNull Issue oldIssue, @NonNull Issue newIssue) {
+            return oldIssue.equals(newIssue);
         }
     }
 
