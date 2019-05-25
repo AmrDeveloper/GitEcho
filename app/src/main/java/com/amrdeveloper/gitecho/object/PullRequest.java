@@ -1,5 +1,8 @@
 package com.amrdeveloper.gitecho.object;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 public class PullRequest {
@@ -85,5 +88,16 @@ public class PullRequest {
             return STATE_OPEN;
         }
         return (mergedAt == null) ? STATE_CLOSE : STATE_MERGE;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return super.equals(obj);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return pullUrl;
     }
 }
