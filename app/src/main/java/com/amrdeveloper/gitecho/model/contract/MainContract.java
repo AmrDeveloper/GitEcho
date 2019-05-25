@@ -4,7 +4,7 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
-import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
+import com.amrdeveloper.gitecho.model.network.repo.RepoViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
 
 public interface MainContract {

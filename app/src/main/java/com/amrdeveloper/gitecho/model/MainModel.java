@@ -4,7 +4,7 @@ import android.arch.lifecycle.LifecycleOwner;
 
 import com.amrdeveloper.gitecho.model.contract.MainContract;
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
-import com.amrdeveloper.gitecho.model.network.main.RepoViewModel;
+import com.amrdeveloper.gitecho.model.network.repo.RepoViewModel;
 
 public class MainModel implements MainContract.Model {
 

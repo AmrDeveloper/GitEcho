@@ -10,8 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.ReposViewModel;
-import com.amrdeveloper.gitecho.RepositoriesPresenter;
+import com.amrdeveloper.gitecho.model.network.repos.ReposViewModel;
+import com.amrdeveloper.gitecho.presenter.RepositoriesPresenter;
 import com.amrdeveloper.gitecho.model.contract.RepositoriesContract;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.databinding.ActivityRepositoriesBinding;

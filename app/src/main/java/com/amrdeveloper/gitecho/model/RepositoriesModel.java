@@ -1,9 +1,10 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model;
 
 import android.arch.lifecycle.LifecycleOwner;
 
 import com.amrdeveloper.gitecho.model.contract.RepositoriesContract;
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
+import com.amrdeveloper.gitecho.model.network.repos.ReposViewModel;
 
 public class RepositoriesModel implements RepositoriesContract.Model {
 

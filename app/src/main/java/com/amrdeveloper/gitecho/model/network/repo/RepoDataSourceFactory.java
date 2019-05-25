@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho.model.network.main;
+package com.amrdeveloper.gitecho.model.network.repo;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.paging.DataSource;

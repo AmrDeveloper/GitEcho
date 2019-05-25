@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho.model.network.main;
+package com.amrdeveloper.gitecho.model.network.repos;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
@@ -8,21 +8,21 @@ import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.object.Repository;
 
-public class RepoViewModel extends ViewModel {
+public class ReposViewModel extends ViewModel {
 
-    public static String sUsername;
+    public static String sQuery;
     private LiveData<PagedList<Repository>> itemPagedList;
     private LiveData<PageKeyedDataSource<Integer, Repository>> liveDataSource;
 
-    public RepoViewModel(){
-        RepoDataSourceFactory itemDataSourceFactory = new RepoDataSourceFactory(sUsername);
+    public ReposViewModel(){
+        ReposDataSourceFactory itemDataSourceFactory = new ReposDataSourceFactory(sQuery);
         liveDataSource = itemDataSourceFactory.getRepoLiveDataSource();
 
         PagedList.Config config =
                 (new PagedList.Config.Builder())
                         .setEnablePlaceholders(false)
-                        .setPageSize(RepoDataSource.PAGE_SIZE)
-                        .setInitialLoadSizeHint(RepoDataSource.INITIAL_LOAD_SIZE)
+                        .setPageSize(ReposDataSource.PAGE_SIZE)
+                        .setInitialLoadSizeHint(ReposDataSource.INITIAL_LOAD_SIZE)
                         .build();
 
         itemPagedList = (new LivePagedListBuilder<>(itemDataSourceFactory, config)).build();
@@ -36,7 +36,7 @@ public class RepoViewModel extends ViewModel {
         return liveDataSource;
     }
 
-    public static void setUsername(String username){
-        sUsername = username;
+    public static void setSearchQuery(String query){
+        sQuery = query;
     }
 }
