@@ -19,12 +19,23 @@ public interface GithubService {
     @GET("repos/{user}/{repo}")
     Call<Repository> getRepository(
             @Path("user") String username,
-            @Path("repo") String repoName
-    );
+            @Path("repo") String repoName);
 
     @GET("users/{user}/repos")
     Call<List<Repository>> userListRepos(
             @Path("user") String user,
+            @Query("page") int pageNum,
+            @Query("per_page") int pageSize);
+
+    @GET("search/users")
+    Call<List<User>> getListUsers(
+            @Path("user") String user,
+            @Query("page") int pageNum,
+            @Query("per_page") int pageSize);
+
+    @GET("search/repositories")
+    Call<List<Repository>> getRepoList(
+            @Query("q") String query,
             @Query("page") int pageNum,
             @Query("per_page") int pageSize);
 
