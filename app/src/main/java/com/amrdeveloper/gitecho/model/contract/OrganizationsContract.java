@@ -5,7 +5,7 @@ import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.OrganizationsViewModel;
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
-import com.amrdeveloper.gitecho.object.Organiztion;
+import com.amrdeveloper.gitecho.object.Organization;
 
 public interface OrganizationsContract {
 
@@ -15,7 +15,7 @@ public interface OrganizationsContract {
 
     public interface View{
 
-        void onLoadFinish(PagedList<Organiztion> organizations);
+        void onLoadFinish(PagedList<Organization> organizations);
 
         void showProgressBar();
 

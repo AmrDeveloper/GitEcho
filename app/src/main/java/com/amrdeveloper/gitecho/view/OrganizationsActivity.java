@@ -11,7 +11,7 @@ import android.view.View;
 import com.amrdeveloper.gitecho.model.contract.OrganizationsContract;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.ActivityOrganizationsBinding;
-import com.amrdeveloper.gitecho.object.Organiztion;
+import com.amrdeveloper.gitecho.object.Organization;
 import com.amrdeveloper.gitecho.utils.Consts;
 
 public class OrganizationsActivity extends AppCompatActivity implements OrganizationsContract.View {
@@ -37,7 +37,7 @@ public class OrganizationsActivity extends AppCompatActivity implements Organiza
     }
 
     @Override
-    public void onLoadFinish(PagedList<Organiztion> organizations) {
+    public void onLoadFinish(PagedList<Organization> organizations) {
         //TODO : Submit List to PagedAdapter
     }
 

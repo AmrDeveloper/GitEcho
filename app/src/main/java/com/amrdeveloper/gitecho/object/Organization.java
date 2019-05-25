@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Organiztion {
+public class Organization {
 
     @SerializedName("login")
     private String name;
@@ -13,7 +13,7 @@ public class Organiztion {
     @SerializedName("avatar_url")
     private String avatarUrl;
 
-    public Organiztion(String name, String avatarUrl) {
+    public Organization(String name, String avatarUrl) {
         this.name = name;
         this.avatarUrl = avatarUrl;
     }
