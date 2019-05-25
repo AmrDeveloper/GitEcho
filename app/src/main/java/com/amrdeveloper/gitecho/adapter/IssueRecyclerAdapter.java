@@ -50,7 +50,7 @@ public class IssueRecyclerAdapter extends PagedListAdapter<Issue,IssueRecyclerAd
         public boolean areContentsTheSame(@NonNull Issue oldIssue, @NonNull Issue newIssue) {
             return oldIssue.equals(newIssue);
         }
-    }
+    };
 
     class IssueViewHolder extends RecyclerView.ViewHolder {
 
