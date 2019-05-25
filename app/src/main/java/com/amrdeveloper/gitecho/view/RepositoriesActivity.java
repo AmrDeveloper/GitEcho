@@ -47,8 +47,8 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
         binding.reposRecyclerView.setAdapter(repoRecyclerAdapter);
     }
     @Override
-    public void onLoadFinish(PagedList<Repository> repostories) {
-        repoRecyclerAdapter.submitList(repostories);
+    public void onLoadFinish(PagedList<Repository> repositories) {
+        repoRecyclerAdapter.submitList(repositories);
     }
 
     @Override

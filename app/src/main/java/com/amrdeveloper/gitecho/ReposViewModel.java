@@ -6,7 +6,6 @@ import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PageKeyedDataSource;
 import android.arch.paging.PagedList;
 
-import com.amrdeveloper.gitecho.model.network.main.RepoDataSource;
 import com.amrdeveloper.gitecho.object.Repository;
 
 public class ReposViewModel extends ViewModel {

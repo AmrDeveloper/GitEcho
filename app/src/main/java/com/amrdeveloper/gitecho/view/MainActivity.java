@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                     break;
                 }
                 case REPOSITORY:{
-                    typeActivity = RepositoryActivity.class;
+                    typeActivity = RepositoriesActivity.class;
                     break;
                 }
                 case ORGANIZATION: {

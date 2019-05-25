@@ -4,6 +4,7 @@ import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;
 
 import com.amrdeveloper.gitecho.model.network.RetrofitClient;
+import com.amrdeveloper.gitecho.object.RepositoriesList;
 import com.amrdeveloper.gitecho.object.Repository;
 
 import java.util.List;
@@ -28,11 +29,11 @@ public class ReposDataSource extends PageKeyedDataSource<Integer, Repository> {
         RetrofitClient.getInstance()
                 .getGithubService()
                 .getRepoList(query,PAGE_NUM,PAGE_SIZE)
-                .enqueue(new Callback<List<Repository>>() {
+                .enqueue(new Callback<RepositoriesList>() {
                     @Override
-                    public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
+                    public void onResponse(Call<RepositoriesList> call, Response<RepositoriesList> response) {
                         if(response.body() != null){
-                            List<Repository> repoList = response.body();
+                            List<Repository> repoList = response.body().getRepositoryList();
                             if(repoList.size() == PAGE_SIZE){
                                 callback.onResult(repoList,null,PAGE_NUM + 1);
                             }else{
@@ -42,7 +43,7 @@ public class ReposDataSource extends PageKeyedDataSource<Integer, Repository> {
                     }
 
                     @Override
-                    public void onFailure(Call<List<Repository>> call, Throwable t) {
+                    public void onFailure(Call<RepositoriesList> call, Throwable t) {
 
                     }
                 });
@@ -53,17 +54,17 @@ public class ReposDataSource extends PageKeyedDataSource<Integer, Repository> {
         RetrofitClient.getInstance()
                 .getGithubService()
                 .getRepoList(query,params.key,PAGE_SIZE)
-                .enqueue(new Callback<List<Repository>>() {
+                .enqueue(new Callback<RepositoriesList>() {
                     @Override
-                    public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
+                    public void onResponse(Call<RepositoriesList> call, Response<RepositoriesList> response) {
                         if(response.body() != null){
                             Integer key = (params.key > 1) ? params.key - 1 : null;
-                            callback.onResult(response.body(), key);
+                            callback.onResult(response.body().getRepositoryList(), key);
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<List<Repository>> call, Throwable t) {
+                    public void onFailure(Call<RepositoriesList> call, Throwable t) {
 
                     }
                 });
@@ -74,17 +75,17 @@ public class ReposDataSource extends PageKeyedDataSource<Integer, Repository> {
         RetrofitClient.getInstance()
                 .getGithubService()
                 .getRepoList(query,params.key,PAGE_SIZE)
-                .enqueue(new Callback<List<Repository>>() {
+                .enqueue(new Callback<RepositoriesList>() {
                     @Override
-                    public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
+                    public void onResponse(Call<RepositoriesList> call, Response<RepositoriesList> response) {
                         if(response.body() != null){
-                            Integer key = response.body().size() == PAGE_SIZE ? params.key + 1 : null;
-                            callback.onResult(response.body(), key);
+                            Integer key = response.body().getRepositoryList().size() == PAGE_SIZE ? params.key + 1 : null;
+                            callback.onResult(response.body().getRepositoryList(), key);
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<List<Repository>> call, Throwable t) {
+                    public void onFailure(Call<RepositoriesList> call, Throwable t) {
 
                     }
                 });

@@ -1,5 +1,6 @@
 package com.amrdeveloper.gitecho.model.network;
 
+import com.amrdeveloper.gitecho.object.RepositoriesList;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.object.Stargazer;
 import com.amrdeveloper.gitecho.object.User;
@@ -34,7 +35,7 @@ public interface GithubService {
             @Query("per_page") int pageSize);
 
     @GET("search/repositories")
-    Call<List<Repository>> getRepoList(
+    Call<RepositoriesList> getRepoList(
             @Query("q") String query,
             @Query("page") int pageNum,
             @Query("per_page") int pageSize);
