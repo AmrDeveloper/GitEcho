@@ -1,8 +1,10 @@
 package com.amrdeveloper.gitecho.adapter;
 
+import android.arch.paging.PagedListAdapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -11,22 +13,13 @@ import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.PullListItemBinding;
 import com.amrdeveloper.gitecho.object.PullRequest;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class PullRecyclerAdapter extends RecyclerView.Adapter<PullRecyclerAdapter.PullViewHolder> {
+public class PullRecyclerAdapter extends PagedListAdapter<PullRequest,PullRecyclerAdapter.PullViewHolder> {
 
     private Context context;
-    private List<PullRequest> pullRequestList;
 
-    public PullRecyclerAdapter(Context context) {
+    protected PullRecyclerAdapter(Context context) {
+        super(DIFF_CALL_BACK);
         this.context = context;
-        this.pullRequestList = new ArrayList<>();
-    }
-
-    public PullRecyclerAdapter(Context context, List<PullRequest> pullRequestList) {
-        this.context = context;
-        this.pullRequestList = pullRequestList;
     }
 
     @NonNull
@@ -41,21 +34,23 @@ public class PullRecyclerAdapter extends RecyclerView.Adapter<PullRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull PullViewHolder pullViewHolder, int i) {
-        PullRequest currentPullRequest = pullRequestList.get(i);
-        pullViewHolder.bingPullRequest(currentPullRequest);
-    }
-
-    @Override
-    public int getItemCount() {
-        return pullRequestList.size();
-    }
-
-    public void updateRecyclerData(List<PullRequest> pullRequestList) {
-        if (pullRequestList != null) {
-            this.pullRequestList = pullRequestList;
-            notifyDataSetChanged();
+        PullRequest currentPullRequest = getItem(i);
+        if (currentPullRequest != null) {
+            pullViewHolder.bingPullRequest(currentPullRequest);
         }
     }
+
+    private static DiffUtil.ItemCallback<PullRequest> DIFF_CALL_BACK = new DiffUtil.ItemCallback<PullRequest>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull PullRequest oldRequest, @NonNull PullRequest newRequest) {
+            return oldRequest.getPullUrl().equals(newRequest);
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull PullRequest oldRequest, @NonNull PullRequest newRequest) {
+            return oldRequest.equals(newRequest);
+        }
+    };
 
     class PullViewHolder extends RecyclerView.ViewHolder {
 
