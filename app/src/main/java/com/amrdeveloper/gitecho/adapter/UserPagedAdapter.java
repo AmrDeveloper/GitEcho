@@ -14,11 +14,11 @@ import com.amrdeveloper.gitecho.databinding.UserListItemBinding;
 import com.amrdeveloper.gitecho.object.User;
 import com.squareup.picasso.Picasso;
 
-public class UserReyclerAdapter extends PagedListAdapter<User, UserReyclerAdapter.UserViewHolder> {
+public class UserPagedAdapter extends PagedListAdapter<User, UserPagedAdapter.UserViewHolder> {
 
     private Context context;
 
-    protected UserReyclerAdapter(Context context) {
+    protected UserPagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }

@@ -10,7 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.adapter.StarRecyclerAdapter;
+import com.amrdeveloper.gitecho.adapter.StarPagedAdapter;
 import com.amrdeveloper.gitecho.databinding.ActivityStargazerBinding;
 import com.amrdeveloper.gitecho.model.contract.StarsContract;
 import com.amrdeveloper.gitecho.model.network.stars.StarsViewModel;
@@ -24,7 +24,7 @@ public class StargazerActivity extends AppCompatActivity implements StarsContrac
     private String repositoryName;
     private StarsPresenter presenter;
     private ActivityStargazerBinding binding;
-    private StarRecyclerAdapter starRecyclerAdapter;
+    private StarPagedAdapter starPagedAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +44,15 @@ public class StargazerActivity extends AppCompatActivity implements StarsContrac
     }
 
     private void setRecyclerViewSettings() {
-        starRecyclerAdapter = new StarRecyclerAdapter(this);
+        starPagedAdapter = new StarPagedAdapter(this);
         binding.repoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.repoRecyclerView.setHasFixedSize(true);
-        binding.repoRecyclerView.setAdapter(starRecyclerAdapter);
+        binding.repoRecyclerView.setAdapter(starPagedAdapter);
     }
 
     @Override
     public void onLoadFinish(PagedList<Stargazer> stargazers) {
-        starRecyclerAdapter.submitList(stargazers);
+        starPagedAdapter.submitList(stargazers);
     }
 
     @Override

@@ -21,7 +21,7 @@ import com.amrdeveloper.gitecho.databinding.MultiSearchDialogBinding;
 import com.amrdeveloper.gitecho.object.Type;
 import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
+import com.amrdeveloper.gitecho.adapter.RepoPagedAdapter;
 import com.amrdeveloper.gitecho.model.network.repo.RepoViewModel;
 import com.amrdeveloper.gitecho.databinding.ActivityMainBinding;
 import com.amrdeveloper.gitecho.model.contract.MainContract;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private String username;
     private MainPresenter presenter;
     private ActivityMainBinding binding;
-    private RepoPagedListAdapter repoRecyclerAdapter;
+    private RepoPagedAdapter repoRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void setRecyclerViewSettings() {
-        repoRecyclerAdapter = new RepoPagedListAdapter(this);
+        repoRecyclerAdapter = new RepoPagedAdapter(this);
         binding.repoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.repoRecyclerView.setHasFixedSize(true);
         binding.repoRecyclerView.setAdapter(repoRecyclerAdapter);

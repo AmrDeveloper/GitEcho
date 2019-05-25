@@ -30,7 +30,7 @@ public class OrganizationsActivity extends AppCompatActivity implements Organiza
     }
 
     private void setRecyclerViewSettings() {
-        //repoRecyclerAdapter = new RepoPagedListAdapter(this);
+        //repoRecyclerAdapter = new RepoPagedAdapter(this);
         binding.orgsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.orgsRecyclerView.setHasFixedSize(true);
         //binding.orgsRecyclerView.setAdapter(repoRecyclerAdapter);

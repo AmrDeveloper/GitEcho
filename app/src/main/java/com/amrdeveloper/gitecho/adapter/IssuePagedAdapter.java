@@ -13,11 +13,11 @@ import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.IssueListItemBinding;
 import com.amrdeveloper.gitecho.object.Issue;
 
-public class IssueRecyclerAdapter extends PagedListAdapter<Issue,IssueRecyclerAdapter.IssueViewHolder> {
+public class IssuePagedAdapter extends PagedListAdapter<Issue, IssuePagedAdapter.IssueViewHolder> {
 
     private Context context;
 
-    protected IssueRecyclerAdapter(Context context) {
+    protected IssuePagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }

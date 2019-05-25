@@ -12,7 +12,7 @@ import android.view.View;
 import com.amrdeveloper.gitecho.model.contract.ForksContract;
 import com.amrdeveloper.gitecho.presenter.ForksPresenter;
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
+import com.amrdeveloper.gitecho.adapter.RepoPagedAdapter;
 import com.amrdeveloper.gitecho.databinding.ActivityForksBinding;
 import com.amrdeveloper.gitecho.model.network.forks.ForksViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
@@ -24,7 +24,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Vi
     private String repositoryName;
     private ActivityForksBinding binding;
     private ForksContract.Presenter presenter;
-    private RepoPagedListAdapter repoRecyclerAdapter;
+    private RepoPagedAdapter repoRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Vi
     }
 
     private void setRecyclerViewSettings() {
-        repoRecyclerAdapter = new RepoPagedListAdapter(this);
+        repoRecyclerAdapter = new RepoPagedAdapter(this);
         binding.repoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.repoRecyclerView.setHasFixedSize(true);
         binding.repoRecyclerView.setAdapter(repoRecyclerAdapter);

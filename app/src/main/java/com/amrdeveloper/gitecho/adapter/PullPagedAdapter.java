@@ -13,11 +13,11 @@ import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.PullListItemBinding;
 import com.amrdeveloper.gitecho.object.PullRequest;
 
-public class PullRecyclerAdapter extends PagedListAdapter<PullRequest,PullRecyclerAdapter.PullViewHolder> {
+public class PullPagedAdapter extends PagedListAdapter<PullRequest, PullPagedAdapter.PullViewHolder> {
 
     private Context context;
 
-    protected PullRecyclerAdapter(Context context) {
+    protected PullPagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }

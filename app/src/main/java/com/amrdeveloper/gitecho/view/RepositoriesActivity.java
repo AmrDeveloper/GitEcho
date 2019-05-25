@@ -10,10 +10,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
+import com.amrdeveloper.gitecho.adapter.RepoPagedAdapter;
 import com.amrdeveloper.gitecho.model.network.repos.ReposViewModel;
 import com.amrdeveloper.gitecho.presenter.RepositoriesPresenter;
 import com.amrdeveloper.gitecho.model.contract.RepositoriesContract;
-import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.databinding.ActivityRepositoriesBinding;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.utils.Consts;
@@ -21,7 +21,7 @@ import com.amrdeveloper.gitecho.utils.Consts;
 public class RepositoriesActivity extends AppCompatActivity implements RepositoriesContract.View {
 
     private ActivityRepositoriesBinding binding;
-    private RepoPagedListAdapter repoRecyclerAdapter;
+    private RepoPagedAdapter repoRecyclerAdapter;
     private RepositoriesContract.Presenter presenter;
 
     @Override
@@ -41,7 +41,7 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
     }
 
     private void setRecyclerViewSettings() {
-        repoRecyclerAdapter = new RepoPagedListAdapter(this);
+        repoRecyclerAdapter = new RepoPagedAdapter(this);
         binding.reposRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.reposRecyclerView.setHasFixedSize(true);
         binding.reposRecyclerView.setAdapter(repoRecyclerAdapter);

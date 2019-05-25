@@ -19,11 +19,11 @@ import com.amrdeveloper.gitecho.view.ForksActivity;
 import com.amrdeveloper.gitecho.view.RepositoryActivity;
 import com.amrdeveloper.gitecho.view.StargazerActivity;
 
-public class RepoPagedListAdapter extends PagedListAdapter<Repository, RepoPagedListAdapter.RepoViewHolder> {
+public class RepoPagedAdapter extends PagedListAdapter<Repository, RepoPagedAdapter.RepoViewHolder> {
 
     private Context context;
 
-    public RepoPagedListAdapter(Context context) {
+    public RepoPagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }

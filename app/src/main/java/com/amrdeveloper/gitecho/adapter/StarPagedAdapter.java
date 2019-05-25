@@ -14,11 +14,11 @@ import com.amrdeveloper.gitecho.databinding.StarListItemBinding;
 import com.amrdeveloper.gitecho.object.Stargazer;
 import com.squareup.picasso.Picasso;
 
-public class StarRecyclerAdapter extends PagedListAdapter<Stargazer,StarRecyclerAdapter.StarViewHolder> {
+public class StarPagedAdapter extends PagedListAdapter<Stargazer, StarPagedAdapter.StarViewHolder> {
 
     private Context context;
 
-    public StarRecyclerAdapter(Context context) {
+    public StarPagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }

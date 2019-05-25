@@ -30,7 +30,7 @@ public class UsersActivity extends AppCompatActivity implements UsersContract.Vi
     }
 
     private void setRecyclerViewSettings() {
-        //repoRecyclerAdapter = new RepoPagedListAdapter(this);
+        //repoRecyclerAdapter = new RepoPagedAdapter(this);
         binding.usersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.usersRecyclerView.setHasFixedSize(true);
         //binding.usersRecyclerView.setAdapter(repoRecyclerAdapter);
