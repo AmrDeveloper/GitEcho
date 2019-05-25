@@ -1,5 +1,8 @@
 package com.amrdeveloper.gitecho.object;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 public class User {
@@ -96,5 +99,16 @@ public class User {
 
     public int getFollowingNum() {
         return followingNum;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return super.equals(obj);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return username;
     }
 }
