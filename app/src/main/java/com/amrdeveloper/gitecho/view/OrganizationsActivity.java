@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.view;
 
 import android.arch.paging.PagedList;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.amrdeveloper.gitecho.model.contract.OrganizationsContract;
+import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.ActivityOrganizationsBinding;
 import com.amrdeveloper.gitecho.object.Organiztion;
 import com.amrdeveloper.gitecho.utils.Consts;

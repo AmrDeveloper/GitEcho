@@ -17,8 +17,6 @@ import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.amrdeveloper.gitecho.OrganizationsActivity;
-import com.amrdeveloper.gitecho.UsersActivity;
 import com.amrdeveloper.gitecho.databinding.MultiSearchDialogBinding;
 import com.amrdeveloper.gitecho.object.Type;
 import com.amrdeveloper.gitecho.utils.Consts;

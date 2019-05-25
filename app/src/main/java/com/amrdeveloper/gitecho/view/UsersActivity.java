@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.view;
 
 import android.arch.paging.PagedList;
 import android.content.Intent;
@@ -8,18 +8,20 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.amrdeveloper.gitecho.R;
+import com.amrdeveloper.gitecho.model.contract.UsersContract;
 import com.amrdeveloper.gitecho.databinding.ActivityUsersBinding;
 import com.amrdeveloper.gitecho.object.User;
 import com.amrdeveloper.gitecho.utils.Consts;
 
-public class UsersActivity extends AppCompatActivity implements UsersContract.View{
+public class UsersActivity extends AppCompatActivity implements UsersContract.View {
 
     private ActivityUsersBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_users);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_users);
 
         Intent intent = getIntent();
         String query = intent.getStringExtra(Consts.QUERY);
