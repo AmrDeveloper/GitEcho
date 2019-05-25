@@ -1,4 +1,6 @@
 package com.amrdeveloper.gitecho;
 
-public class UsersViewModel {
+import android.arch.lifecycle.ViewModel;
+
+public class UsersViewModel extends ViewModel {
 }

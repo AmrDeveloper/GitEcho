@@ -1,4 +1,6 @@
 package com.amrdeveloper.gitecho;
 
-public class OrganizationsViewModel {
+import android.arch.lifecycle.ViewModel;
+
+public class OrganizationsViewModel extends ViewModel {
 }
