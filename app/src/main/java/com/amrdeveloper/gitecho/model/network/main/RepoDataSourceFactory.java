@@ -8,9 +8,8 @@ import com.amrdeveloper.gitecho.object.Repository;
 
 public class RepoDataSourceFactory extends DataSource.Factory {
 
-    private MutableLiveData<PageKeyedDataSource<Integer, Repository>> repoLiveDataSource = new MutableLiveData<>();
-
     private String username;
+    private MutableLiveData<PageKeyedDataSource<Integer, Repository>> repoLiveDataSource = new MutableLiveData<>();
 
     public RepoDataSourceFactory(String username){
         this.username = username;

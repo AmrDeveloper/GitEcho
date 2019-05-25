@@ -1,5 +1,6 @@
 package com.amrdeveloper.gitecho.view;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.arch.paging.PagedList;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -9,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
+import com.amrdeveloper.gitecho.ReposViewModel;
+import com.amrdeveloper.gitecho.RepositoriesPresenter;
 import com.amrdeveloper.gitecho.model.contract.RepositoriesContract;
 import com.amrdeveloper.gitecho.adapter.RepoPagedListAdapter;
 import com.amrdeveloper.gitecho.databinding.ActivityRepositoriesBinding;
@@ -19,6 +22,7 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
 
     private ActivityRepositoriesBinding binding;
     private RepoPagedListAdapter repoRecyclerAdapter;
+    private RepositoriesContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,13 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
 
         Intent intent = getIntent();
         String query = intent.getStringExtra(Consts.QUERY);
-
         setRecyclerViewSettings();
+
+        ReposViewModel.setSearchQuery(query);
+        ReposViewModel itemViewModel = ViewModelProviders.of(this).get(ReposViewModel.class);
+
+        presenter = new RepositoriesPresenter(this,itemViewModel,this);
+        presenter.startLoadingData(query);
     }
 
     private void setRecyclerViewSettings() {
