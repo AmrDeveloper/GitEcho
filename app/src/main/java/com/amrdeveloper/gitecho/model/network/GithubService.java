@@ -31,7 +31,7 @@ public interface GithubService {
 
     @GET("search/users")
     Call<UsersList> getUsersList(
-            @Path("user") String user,
+            @Query("q") String query,
             @Query("page") int pageNum,
             @Query("per_page") int pageSize);
 
