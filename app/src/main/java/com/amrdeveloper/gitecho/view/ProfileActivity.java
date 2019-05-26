@@ -65,12 +65,18 @@ public class ProfileActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinish(Account user) {
-        binding.nameTxt.setText(user.getName());
         binding.gistTxt.setText(String.format(Locale.ENGLISH,FormatUtils.GISTS,user.getGistsNumber()));
         binding.reposTxt.setText(String.format(Locale.ENGLISH,FormatUtils.REPOSITORIES,user.getReposNumber()));
         binding.followersTxt.setText(String.format(Locale.ENGLISH,FormatUtils.FOLLOWERS,user.getFollowersNum()));
         binding.followingTxt.setText(String.format(Locale.ENGLISH,FormatUtils.FOLLOWING,user.getFollowingNum()));
         Picasso.get().load(user.getAvatarUrl()).fit().into(binding.avatarImg);
+
+        //Bind Name
+        String name = user.getName();
+        if(name != null)
+            binding.nameTxt.setText(name);
+        else
+            binding.nameTxt.setVisibility(View.GONE);
 
         //Bind Company Name
         String company = user.getCompany();
