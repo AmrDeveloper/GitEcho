@@ -4,6 +4,7 @@ import com.amrdeveloper.gitecho.object.RepositoriesList;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.object.Stargazer;
 import com.amrdeveloper.gitecho.object.User;
+import com.amrdeveloper.gitecho.object.UsersList;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public interface GithubService {
             @Query("per_page") int pageSize);
 
     @GET("search/users")
-    Call<List<User>> getListUsers(
+    Call<UsersList> getUsersList(
             @Path("user") String user,
             @Query("page") int pageNum,
             @Query("per_page") int pageSize);

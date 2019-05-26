@@ -18,7 +18,7 @@ public class UserPagedAdapter extends PagedListAdapter<User, UserPagedAdapter.Us
 
     private Context context;
 
-    protected UserPagedAdapter(Context context) {
+    public UserPagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }
