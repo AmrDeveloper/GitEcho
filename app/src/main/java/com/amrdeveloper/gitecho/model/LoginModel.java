@@ -5,7 +5,7 @@ import android.content.Context;
 import com.amrdeveloper.gitecho.model.contract.LoginContract;
 import com.amrdeveloper.gitecho.model.listener.OnLoginListener;
 import com.amrdeveloper.gitecho.model.network.RetrofitClient;
-import com.amrdeveloper.gitecho.object.User;
+import com.amrdeveloper.gitecho.object.Account;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,11 +23,11 @@ public class LoginModel implements LoginContract.Model {
         RetrofitClient.getInstance()
                 .getGithubService()
                 .getOneUser(username)
-                .enqueue(new Callback<User>() {
+                .enqueue(new Callback<Account>() {
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<Account> call, Response<Account> response) {
                         if(response.body() != null){
-                            User login = response.body();
+                            Account login = response.body();
                             listener.onLoginSuccess(login.getUsername());
                         }else{
                             listener.onLoginFailure();
@@ -35,7 +35,7 @@ public class LoginModel implements LoginContract.Model {
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<Account> call, Throwable t) {
                         listener.onLoginFailure();
                     }
                 });

@@ -1,5 +1,8 @@
 package com.amrdeveloper.gitecho.object;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Stargazer {
@@ -21,5 +24,16 @@ public class Stargazer {
 
     public String getAvatarUrl() {
         return avatarUrl;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return super.equals(obj);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return username;
     }
 }

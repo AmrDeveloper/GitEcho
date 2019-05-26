@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/userCardView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen150dp"
+        android:layout_height="@dimen/dimen65dp"
         app:cardCornerRadius="@dimen/dimen5dp"
         app:cardElevation="@dimen/dimen2dp"
         app:cardUseCompatPadding="true"
@@ -18,60 +18,25 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/userAvatarImg"
-                android:layout_width="@dimen/dimen85dp"
-                android:layout_height="@dimen/dimen85dp"
+                android:layout_width="@dimen/dimen50dp"
+                android:layout_height="@dimen/dimen50dp"
                 android:layout_margin="@dimen/dimen5dp"
                 android:contentDescription="@string/user_avatar"
                 app:civ_border_color="@color/black"
                 app:civ_border_width="@dimen/dimen2dp" />
 
             <TextView
-                android:id="@+id/userLoginTxt"
+                android:id="@+id/userNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/userAvatarImg"
                 android:layout_toRightOf="@id/userAvatarImg"
+                android:layout_centerVertical="true"
                 android:padding="5dp"
                 android:textColor="@color/blue"
                 android:textSize="@dimen/dimen20sp"
                 android:textStyle="bold"
                 tools:text="AmrDeveloper" />
-
-            <TextView
-                android:id="@+id/userNameTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/userLoginTxt"
-                android:layout_toEndOf="@id/userAvatarImg"
-                android:layout_toRightOf="@id/userAvatarImg"
-                android:padding="@dimen/dimen5dp"
-                android:textColor="@color/black"
-                tools:text="Amr Hesham" />
-
-            <TextView
-                android:id="@+id/userBioTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/userNameTxt"
-                android:layout_toEndOf="@id/userAvatarImg"
-                android:layout_toRightOf="@id/userAvatarImg"
-                android:lines="1"
-                android:padding="@dimen/dimen5dp"
-                android:textColor="@color/gray"
-                tools:text=" Self-Taught Software Engineer " />
-
-            <TextView
-                android:id="@+id/userLocationTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/userBioTxt"
-                android:layout_toEndOf="@id/userAvatarImg"
-                android:layout_toRightOf="@id/userAvatarImg"
-                android:drawableStart="@drawable/ic_location"
-                android:drawableLeft="@drawable/ic_location"
-                android:drawablePadding="@dimen/dimen5dp"
-                android:padding="@dimen/dimen5dp"
-                tools:text="Alexandria, Egypt " />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </layout>

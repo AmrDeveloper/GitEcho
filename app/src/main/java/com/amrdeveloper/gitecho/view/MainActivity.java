@@ -139,10 +139,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                     typeActivity = RepositoriesActivity.class;
                     break;
                 }
-                case ORGANIZATION: {
-                    typeActivity = OrganizationsActivity.class;
-                    break;
-                }
             }
 
             Intent intent = new Intent(this,typeActivity);

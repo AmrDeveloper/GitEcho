@@ -12,7 +12,7 @@ import com.amrdeveloper.gitecho.presenter.ProfilePresenter;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.ActivityProfileBinding;
 import com.amrdeveloper.gitecho.model.contract.ProfileContract;
-import com.amrdeveloper.gitecho.object.User;
+import com.amrdeveloper.gitecho.object.Account;
 import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.utils.FormatUtils;
 import com.amrdeveloper.gitecho.utils.Session;
@@ -64,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLoadFinish(User user) {
+    public void onLoadFinish(Account user) {
         binding.nameTxt.setText(user.getName());
         binding.gistTxt.setText(String.format(Locale.ENGLISH,FormatUtils.GISTS,user.getGistsNumber()));
         binding.reposTxt.setText(String.format(Locale.ENGLISH,FormatUtils.REPOSITORIES,user.getReposNumber()));

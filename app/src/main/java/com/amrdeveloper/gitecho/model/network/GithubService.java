@@ -3,7 +3,7 @@ package com.amrdeveloper.gitecho.model.network;
 import com.amrdeveloper.gitecho.object.RepositoriesList;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.object.Stargazer;
-import com.amrdeveloper.gitecho.object.User;
+import com.amrdeveloper.gitecho.object.Account;
 import com.amrdeveloper.gitecho.object.UsersList;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import retrofit2.http.Query;
 public interface GithubService {
 
     @GET("users/{user}")
-    Call<User> getOneUser(@Path("user") String user);
+    Call<Account> getOneUser(@Path("user") String user);
 
     @GET("repos/{user}/{repo}")
     Call<Repository> getRepository(

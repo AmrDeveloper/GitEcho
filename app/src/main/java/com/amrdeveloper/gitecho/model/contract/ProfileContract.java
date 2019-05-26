@@ -1,16 +1,16 @@
 package com.amrdeveloper.gitecho.model.contract;
 
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
-import com.amrdeveloper.gitecho.object.User;
+import com.amrdeveloper.gitecho.object.Account;
 
 public interface ProfileContract {
 
     public interface Model{
-        void getUserInformation(String username, OnLoadListener<User> listener);
+        void getUserInformation(String username, OnLoadListener<Account> listener);
     }
 
     public interface View{
-        void onLoadFinish(User user);
+        void onLoadFinish(Account user);
     }
 
     public interface Presenter{

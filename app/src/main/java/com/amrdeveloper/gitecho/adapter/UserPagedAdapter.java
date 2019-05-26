@@ -2,6 +2,7 @@ package com.amrdeveloper.gitecho.adapter;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
@@ -11,7 +12,10 @@ import android.view.ViewGroup;
 
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.UserListItemBinding;
+import com.amrdeveloper.gitecho.object.Type;
 import com.amrdeveloper.gitecho.object.User;
+import com.amrdeveloper.gitecho.utils.Consts;
+import com.amrdeveloper.gitecho.view.ProfileActivity;
 import com.squareup.picasso.Picasso;
 
 public class UserPagedAdapter extends PagedListAdapter<User, UserPagedAdapter.UserViewHolder> {
@@ -44,7 +48,7 @@ public class UserPagedAdapter extends PagedListAdapter<User, UserPagedAdapter.Us
     private static DiffUtil.ItemCallback<User> DIFF_CALL_BACK = new DiffUtil.ItemCallback<User>() {
         @Override
         public boolean areItemsTheSame(@NonNull User oldUser, @NonNull User newUser) {
-            return oldUser.getUsername().equals(newUser.getUsername());
+            return oldUser.getName().equals(newUser.getName());
         }
 
         @Override
@@ -64,10 +68,16 @@ public class UserPagedAdapter extends PagedListAdapter<User, UserPagedAdapter.Us
 
         private void bingUser(User user) {
             binding.userNameTxt.setText(user.getName());
-            binding.userLoginTxt.setText(user.getUsername());
-            binding.userBioTxt.setText(user.getBiography());
-            binding.userLocationTxt.setText(user.getLocation());
             Picasso.get().load(user.getAvatarUrl()).fit().into(binding.userAvatarImg);
+
+            binding.userCardView.setOnClickListener(v -> {
+                Type userType = user.getUserType();
+                if (userType == Type.USER){
+                    Intent intent = new Intent(context, ProfileActivity.class);
+                    intent.putExtra(Consts.USERNAME,user.getName());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

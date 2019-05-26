@@ -10,8 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
-import com.amrdeveloper.gitecho.UsersPresenter;
-import com.amrdeveloper.gitecho.UsersViewModel;
+import com.amrdeveloper.gitecho.presenter.UsersPresenter;
+import com.amrdeveloper.gitecho.model.network.users.UsersViewModel;
 import com.amrdeveloper.gitecho.adapter.UserPagedAdapter;
 import com.amrdeveloper.gitecho.model.contract.UsersContract;
 import com.amrdeveloper.gitecho.databinding.ActivityUsersBinding;
