@@ -68,6 +68,7 @@ public class UserPagedAdapter extends PagedListAdapter<User, UserPagedAdapter.Us
 
         private void bingUser(User user) {
             binding.userNameTxt.setText(user.getName());
+            binding.userTypeTxt.setText(user.getUserType().name());
             Picasso.get().load(user.getAvatarUrl()).fit().into(binding.userAvatarImg);
 
             binding.userCardView.setOnClickListener(v -> {
