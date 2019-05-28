@@ -10,7 +10,7 @@ Retrofit2
 
 GSON
 
-Picassio
+Picasso
 
 Architecture Components ViewModel
 
