@@ -44,6 +44,9 @@ public class MainActivity
     private RepoPagedAdapter repoRecyclerAdapter;
     private NetworkReceiver networkReceiver;
 
+    private Snackbar onlineSnackBar;
+    private Snackbar offlineSnackBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -173,19 +176,24 @@ public class MainActivity
 
     @Override
     public void onInternetConnected() {
-        //Show SnackBar with green background and white TextColor with text Online
-        final View view = getWindow().getDecorView().getRootView();
-        Snackbar onlineSnackBar = Snackbar.make(view, R.string.online, Snackbar.LENGTH_SHORT);
-        onlineSnackBar.getView().setBackgroundResource(R.color.green);
+        if(onlineSnackBar == null){
+            final View view = getWindow().getDecorView().getRootView();
+            onlineSnackBar = Snackbar.make(view, R.string.online, Snackbar.LENGTH_SHORT);
+            onlineSnackBar.getView().setBackgroundResource(R.color.green);
+        }
+        if(offlineSnackBar != null && offlineSnackBar.isShown()){
+            offlineSnackBar.dismiss();
+        }
         onlineSnackBar.show();
     }
 
     @Override
     public void onInternetDisConnected() {
-        //Show SnackBar with Red background and white TextColor with text Offline
-        final View view = getWindow().getDecorView().getRootView();
-        Snackbar offlineSnackBar = Snackbar.make(view, R.string.offline, Snackbar.LENGTH_LONG);
-        offlineSnackBar.getView().setBackgroundResource(R.color.red);
+        if(offlineSnackBar == null){
+            final View view = getWindow().getDecorView().getRootView();
+            offlineSnackBar = Snackbar.make(view, R.string.offline, Snackbar.LENGTH_INDEFINITE);
+            offlineSnackBar.getView().setBackgroundResource(R.color.red);
+        }
         offlineSnackBar.show();
     }
 }
