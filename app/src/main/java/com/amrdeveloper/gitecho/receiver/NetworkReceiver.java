@@ -20,7 +20,7 @@ public class NetworkReceiver extends BroadcastReceiver {
         if (action != null && action.equals(android.net.ConnectivityManager.CONNECTIVITY_ACTION)) {
             boolean isConnected = NetworkUtils.isNetworkConnected(context);
             if (isConnected) mOnNetworkListener.onInternetConnected();
-            else mOnNetworkListener.onInternetDisConenected();
+            else mOnNetworkListener.onInternetDisConnected();
         }
     }
 }
