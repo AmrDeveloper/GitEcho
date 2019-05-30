@@ -92,13 +92,10 @@ public class MainActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuId = item.getItemId();
-        switch (menuId) {
-            case R.id.profileMenu: {
-                Intent intent = new Intent(this, ProfileActivity.class);
-                intent.putExtra(Consts.USERNAME, username);
-                startActivity(intent);
-                break;
-            }
+        if (menuId == R.id.profileMenu) {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra(Consts.USERNAME, username);
+            startActivity(intent);
         }
         return true;
     }
