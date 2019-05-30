@@ -9,6 +9,7 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -92,10 +93,13 @@ public class MainActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuId = item.getItemId();
-        if (menuId == R.id.profileMenu) {
-            Intent intent = new Intent(this, ProfileActivity.class);
-            intent.putExtra(Consts.USERNAME, username);
-            startActivity(intent);
+        switch (menuId) {
+            case R.id.profileMenu: {
+                Intent intent = new Intent(this, ProfileActivity.class);
+                intent.putExtra(Consts.USERNAME, username);
+                startActivity(intent);
+                break;
+            }
         }
         return true;
     }
@@ -169,13 +173,19 @@ public class MainActivity
 
     @Override
     public void onInternetConnected() {
-        //TODO : Show SnackBar with green background and white TextColor with text Online
-        Toast.makeText(this, "OnLine", Toast.LENGTH_SHORT).show();
+        //Show SnackBar with green background and white TextColor with text Online
+        final View view = getWindow().getDecorView().getRootView();
+        Snackbar onlineSnackBar = Snackbar.make(view, R.string.online, Snackbar.LENGTH_SHORT);
+        onlineSnackBar.getView().setBackgroundResource(R.color.green);
+        onlineSnackBar.show();
     }
 
     @Override
     public void onInternetDisConnected() {
-       //TODO : Show SnackBar with Red background and white TextColor with text Offline
-        Toast.makeText(this, "OffLine", Toast.LENGTH_SHORT).show();
+        //Show SnackBar with Red background and white TextColor with text Offline
+        final View view = getWindow().getDecorView().getRootView();
+        Snackbar offlineSnackBar = Snackbar.make(view, R.string.offline, Snackbar.LENGTH_LONG);
+        offlineSnackBar.getView().setBackgroundResource(R.color.red);
+        offlineSnackBar.show();
     }
 }
