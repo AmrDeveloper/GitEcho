@@ -42,12 +42,12 @@ public class PullRequestActivity extends AppCompatActivity {
         Fragment selectedFragment = null;
 
         switch (menuID){
-            case R.id.openIssues:{
+            case R.id.openRequest:{
                 selectedFragment = new OpenRequestFragment();
                 selectedFragment.setArguments(repositoryBundleData);
                 break;
             }
-            case R.id.closedIssues:{
+            case R.id.closedRequest:{
                 selectedFragment = new ClosedRequestFragment();
                 selectedFragment.setArguments(repositoryBundleData);
                 break;
