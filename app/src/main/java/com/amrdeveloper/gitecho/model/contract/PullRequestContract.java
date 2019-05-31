@@ -1,9 +1,10 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model.contract;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
+import com.amrdeveloper.gitecho.model.network.pulls.PullRequestViewModel;
 import com.amrdeveloper.gitecho.object.PullRequest;
 
 public interface PullRequestContract {

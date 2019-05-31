@@ -11,9 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.amrdeveloper.gitecho.PullRequestContract;
-import com.amrdeveloper.gitecho.PullRequestPresenter;
-import com.amrdeveloper.gitecho.PullRequestViewModel;
+import com.amrdeveloper.gitecho.model.contract.PullRequestContract;
+import com.amrdeveloper.gitecho.presenter.PullRequestPresenter;
+import com.amrdeveloper.gitecho.model.network.pulls.PullRequestViewModel;
 import com.amrdeveloper.gitecho.adapter.PullPagedAdapter;
 import com.amrdeveloper.gitecho.databinding.RequestListBinding;
 import com.amrdeveloper.gitecho.object.PullRequest;
@@ -35,7 +35,7 @@ public class ClosedRequestFragment
         binding = RequestListBinding.inflate(inflater,container,false);
         setRecyclerViewSettings();
 
-        PullRequestViewModel.setRequestData(username,repositoryName, PullRequest.STATE_OPEN);
+        PullRequestViewModel.setRequestData(username,repositoryName, PullRequest.STATE_CLOSE);
         PullRequestViewModel viewModel = ViewModelProviders.of(this).get(PullRequestViewModel.class);
 
         presenter = new PullRequestPresenter(this,viewModel,this);

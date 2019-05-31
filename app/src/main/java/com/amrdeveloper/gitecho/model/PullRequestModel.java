@@ -1,8 +1,10 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model;
 
 import android.arch.lifecycle.LifecycleOwner;
 
+import com.amrdeveloper.gitecho.model.contract.PullRequestContract;
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
+import com.amrdeveloper.gitecho.model.network.pulls.PullRequestViewModel;
 
 
 public class PullRequestModel implements PullRequestContract.Model {
