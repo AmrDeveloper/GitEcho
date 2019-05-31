@@ -96,7 +96,7 @@
             android:drawableLeft="@drawable/ic_issue_opened"
             android:drawableStart="@drawable/ic_issue_opened"
             android:drawablePadding="@dimen/dimen5dp"
-            android:text="@string/releases"
+            android:text="@string/issues"
             android:textStyle="bold" />
 
         <TextView

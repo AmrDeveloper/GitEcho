@@ -21,6 +21,7 @@
     <string name="organization">Organization</string>
     <string name="contributors">Contributors</string>
     <string name="releases">Releases</string>
+    <string name="issues">Issues</string>
 
     <string name="online">OnLine</string>
     <string name="offline">OffLine</string>
