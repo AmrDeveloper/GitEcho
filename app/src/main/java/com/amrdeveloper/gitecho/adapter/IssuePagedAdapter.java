@@ -17,7 +17,7 @@ public class IssuePagedAdapter extends PagedListAdapter<Issue, IssuePagedAdapter
 
     private Context context;
 
-    protected IssuePagedAdapter(Context context) {
+    public IssuePagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }
