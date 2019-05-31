@@ -39,9 +39,9 @@ public class IssuesViewModel extends ViewModel {
         return liveDataSource;
     }
 
-    public static void setRequestData(String username,String reponame,String issueType){
+    public static void setRequestData(String username,String repoName,String issueType){
         sUsername = username;
-        sRepoName = reponame;
+        sRepoName = repoName;
         sIssueType = issueType;
     }
 }
