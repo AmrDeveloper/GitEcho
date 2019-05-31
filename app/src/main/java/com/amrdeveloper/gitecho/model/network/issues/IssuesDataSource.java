@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model.network.issues;
 
 import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;

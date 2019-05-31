@@ -1,7 +1,9 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.model;
 
 import android.arch.lifecycle.LifecycleOwner;
 
+import com.amrdeveloper.gitecho.model.contract.IssuesContract;
+import com.amrdeveloper.gitecho.model.network.issues.IssuesViewModel;
 import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 
 public class IssuesModel implements IssuesContract.Model {

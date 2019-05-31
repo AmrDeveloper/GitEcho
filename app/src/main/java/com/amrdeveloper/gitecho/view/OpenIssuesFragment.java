@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.view;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.arch.paging.PagedList;
@@ -11,14 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.amrdeveloper.gitecho.model.contract.IssuesContract;
+import com.amrdeveloper.gitecho.presenter.IssuesPresenter;
+import com.amrdeveloper.gitecho.model.network.issues.IssuesViewModel;
 import com.amrdeveloper.gitecho.adapter.IssuePagedAdapter;
 import com.amrdeveloper.gitecho.databinding.IssuesListBinding;
 import com.amrdeveloper.gitecho.object.Issue;
 import com.amrdeveloper.gitecho.utils.Consts;
 
-public class ClosedIssuedFragment
+public class OpenIssuesFragment
         extends Fragment
-        implements IssuesContract.View{
+        implements IssuesContract.View {
 
     private String username;
     private String repositoryName;
@@ -26,14 +29,13 @@ public class ClosedIssuedFragment
     private IssuesListBinding binding;
     private IssuePagedAdapter issuePagedAdapter;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = IssuesListBinding.inflate(inflater,container,false);
         setRecyclerViewSettings();
 
-        IssuesViewModel.setRequestData(username,repositoryName,Issue.STATE_CLOSE);
+        IssuesViewModel.setRequestData(username,repositoryName,Issue.STATE_OPEN);
         IssuesViewModel viewModel = ViewModelProviders.of(this).get(IssuesViewModel.class);
 
         presenter = new IssuesPresenter(this,viewModel,this);
@@ -63,7 +65,7 @@ public class ClosedIssuedFragment
 
     @Override
     public void showProgressBar() {
-        binding.loadingIndicator.setVisibility(View.VISIBLE);
+       binding.loadingIndicator.setVisibility(View.VISIBLE);
     }
 
     @Override

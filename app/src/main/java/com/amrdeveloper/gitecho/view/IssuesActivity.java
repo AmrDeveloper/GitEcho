@@ -1,4 +1,4 @@
-package com.amrdeveloper.gitecho;
+package com.amrdeveloper.gitecho.view;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.ActivityIssuesBinding;
 import com.amrdeveloper.gitecho.utils.Consts;
 
@@ -20,7 +21,7 @@ public class IssuesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_issues);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_issues);
         binding.issueBottomNav.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         Intent intent = getIntent();
