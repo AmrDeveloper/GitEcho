@@ -13,8 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/GitHubTheme">
-        <activity android:name=".view.RepositoriesActivity" android:label="@string/repository"/>
-        <activity android:name=".view.UsersActivity" android:label="@string/user" />
+        <activity android:name=".IssuesActivity"></activity>
+        <activity
+            android:name=".view.RepositoriesActivity"
+            android:label="@string/repository" />
+        <activity
+            android:name=".view.UsersActivity"
+            android:label="@string/user" />
         <activity android:name=".view.RepositoryActivity" />
         <activity
             android:name=".view.StargazerActivity"

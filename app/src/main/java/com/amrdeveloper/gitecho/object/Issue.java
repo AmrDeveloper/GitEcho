@@ -32,7 +32,7 @@ public class Issue {
     private int number;
 
     public static final String STATE_OPEN = "open";
-    public static final String STATE_CLOSE = "close";
+    public static final String STATE_CLOSE = "closed";
 
     public Issue(String title, String body, String state,
                  Creator creator, String createdAt, String issueUrl,
