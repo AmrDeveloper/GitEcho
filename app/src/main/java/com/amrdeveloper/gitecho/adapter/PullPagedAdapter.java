@@ -17,7 +17,7 @@ public class PullPagedAdapter extends PagedListAdapter<PullRequest, PullPagedAda
 
     private Context context;
 
-    protected PullPagedAdapter(Context context) {
+    public PullPagedAdapter(Context context) {
         super(DIFF_CALL_BACK);
         this.context = context;
     }

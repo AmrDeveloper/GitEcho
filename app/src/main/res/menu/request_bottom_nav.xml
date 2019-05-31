@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/open"
+        android:icon="@drawable/ic_pull_request"
+        android:id="@+id/openRequest"/>
+
+    <item
+        android:title="@string/closed"
+        android:icon="@drawable/ic_close_pull_request"
+        android:id="@+id/closedRequest"/>
+</menu>

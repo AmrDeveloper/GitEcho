@@ -29,7 +29,7 @@ public class PullRequest {
     private int number;
 
     public static final String STATE_OPEN = "open";
-    public static final String STATE_CLOSE = "close";
+    public static final String STATE_CLOSE = "closed";
     public static final String STATE_MERGE = "merge";
 
     public PullRequest(String title, String state, Creator creator,
