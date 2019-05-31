@@ -62,5 +62,19 @@ public class RepositoryActivity extends AppCompatActivity implements RepositoryC
 
         binding.repoCreatedAtTxt.setText(String.format(FormatUtils.CREATED_AT,createdAt));
         binding.repoUpdatedFromTxt.setText(updatedAt);
+
+        binding.repoStarTxt.setOnClickListener(v -> {
+            Intent intent = new Intent(RepositoryActivity.this, StargazerActivity.class);
+            intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
+            intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
+            startActivity(intent);
+        });
+
+        binding.repoForkTxt.setOnClickListener(v -> {
+            Intent intent = new Intent(RepositoryActivity.this, ForksActivity.class);
+            intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
+            intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
+            startActivity(intent);
+        });
     }
 }
