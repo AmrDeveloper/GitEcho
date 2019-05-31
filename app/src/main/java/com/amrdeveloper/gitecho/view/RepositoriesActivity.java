@@ -46,6 +46,7 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
         binding.reposRecyclerView.setHasFixedSize(true);
         binding.reposRecyclerView.setAdapter(repoRecyclerAdapter);
     }
+
     @Override
     public void onLoadFinish(PagedList<Repository> repositories) {
         repoRecyclerAdapter.submitList(repositories);

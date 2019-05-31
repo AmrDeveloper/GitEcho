@@ -8,17 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.amrdeveloper.gitecho.databinding.IssuesListBinding;
 import com.amrdeveloper.gitecho.utils.Consts;
 
 public class OpenIssuesFragment extends Fragment {
 
     private String username;
     private String repositoryName;
+    private IssuesListBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.issue_list_item,container,false);
+        binding = IssuesListBinding.inflate(inflater,container,false);
+        return binding.getRoot();
     }
 
     @Override
