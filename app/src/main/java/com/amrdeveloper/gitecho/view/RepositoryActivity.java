@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.amrdeveloper.gitecho.IssuesActivity;
 import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.model.contract.RepositoryContract;
@@ -72,6 +73,13 @@ public class RepositoryActivity extends AppCompatActivity implements RepositoryC
 
         binding.repoForkTxt.setOnClickListener(v -> {
             Intent intent = new Intent(RepositoryActivity.this, ForksActivity.class);
+            intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
+            intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
+            startActivity(intent);
+        });
+
+        binding.repoIssues.setOnClickListener(v -> {
+            Intent intent = new Intent(RepositoryActivity.this, IssuesActivity.class);
             intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
             intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
             startActivity(intent);
