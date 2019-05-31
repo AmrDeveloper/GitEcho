@@ -53,7 +53,7 @@ public class PullRequestActivity extends AppCompatActivity {
                 break;
             }
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.issueFragmentContainer,selectedFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.requestFragmentContainer,selectedFragment).commit();
         return false;
     };
 }
