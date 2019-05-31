@@ -1,6 +1,7 @@
 package com.amrdeveloper.gitecho.model.network;
 
 import com.amrdeveloper.gitecho.object.Issue;
+import com.amrdeveloper.gitecho.object.PullRequest;
 import com.amrdeveloper.gitecho.object.RepositoriesList;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.object.Stargazer;
@@ -56,8 +57,17 @@ public interface GithubService {
             @Query("page") int pageNum,
             @Query("per_page") int pageSize);
 
-    @GET("repos/{user}/{repo}/issues?state=closed")
+    @GET("repos/{user}/{repo}/issues")
     Call<List<Issue>> getRepoIssues(
+            @Path("user") String username,
+            @Path("repo") String repoName,
+            @Query("state") String state,
+            @Query("page") int pageNum,
+            @Query("per_page") int pageSize
+    );
+
+    @GET("repos/{user}/{repo}/pulls")
+    Call<List<PullRequest>> getRepoPullRequests(
             @Path("user") String username,
             @Path("repo") String repoName,
             @Query("state") String state,
