@@ -22,6 +22,7 @@
     <string name="contributors">Contributors</string>
     <string name="releases">Releases</string>
     <string name="issues">Issues</string>
+    <string name="pull_requests">Pull Requests</string>
 
     <string name="online">OnLine</string>
     <string name="offline">OffLine</string>

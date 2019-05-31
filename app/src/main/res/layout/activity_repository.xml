@@ -100,16 +100,16 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/repoReleases"
+            android:id="@+id/repoPullRequests"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#fff"
             android:padding="15dp"
-            android:drawableLeft="@drawable/ic_tag"
-            android:drawableStart="@drawable/ic_tag"
+            android:drawableLeft="@drawable/ic_pull_request"
+            android:drawableStart="@drawable/ic_pull_request"
             android:drawablePadding="@dimen/dimen5dp"
-            android:text="@string/releases"
+            android:text="@string/pull_requests"
             android:textStyle="bold" />
 
         <TextView

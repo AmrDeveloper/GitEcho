@@ -77,6 +77,13 @@ public class RepositoryActivity extends AppCompatActivity implements RepositoryC
             startActivity(intent);
         });
 
+        binding.repoPullRequests.setOnClickListener(v -> {
+            Intent intent = new Intent(RepositoryActivity.this, PullRequestActivity.class);
+            intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
+            intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
+            startActivity(intent);
+        });
+
         binding.repoIssues.setOnClickListener(v -> {
             Intent intent = new Intent(RepositoryActivity.this, IssuesActivity.class);
             intent.putExtra(Consts.USERNAME,repository.getRepoOwner().getOwnerName());
