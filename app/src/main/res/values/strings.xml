@@ -24,4 +24,6 @@
 
     <string name="online">OnLine</string>
     <string name="offline">OffLine</string>
+    <string name="open">Open</string>
+    <string name="closed">Closed</string>
 </resources>

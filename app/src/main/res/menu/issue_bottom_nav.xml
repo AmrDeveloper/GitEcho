@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="@string/open"
+        android:icon="@drawable/ic_issue_opened"
+        android:id="@+id/openIssues"/>
+
+    <item
+        android:title="@string/closed"
+        android:icon="@drawable/ic_issue_closed"
+        android:id="@+id/closedIssues"/>
+</menu>
