@@ -54,11 +54,7 @@ public class ProfileActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuId = item.getItemId();
         if (menuId == R.id.logoutMenu) {
-            Session session = new Session(this);
-            session.logOut();
-
-            Intent intent = new Intent(this,LoginActivity.class);
-            startActivity(intent);
+            userLogout();
         }
         return true;
     }
@@ -105,5 +101,13 @@ public class ProfileActivity extends AppCompatActivity
             binding.bioTxt.setText(bio);
         else
             binding.bioTxt.setVisibility(View.GONE);
+    }
+
+    private void userLogout(){
+        Session session = new Session(this);
+        session.logOut();
+
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 }
