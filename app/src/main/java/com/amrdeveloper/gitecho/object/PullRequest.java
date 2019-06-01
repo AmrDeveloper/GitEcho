@@ -19,6 +19,9 @@ public class PullRequest {
     @SerializedName("created_at")
     private String createdAt;
 
+    @SerializedName("closed_at")
+    private String closedAt;
+
     @SerializedName("merged_at")
     private String mergedAt;
 
@@ -33,23 +36,13 @@ public class PullRequest {
     public static final String STATE_MERGE = "merge";
 
     public PullRequest(String title, String state, Creator creator,
-                       String createdAt, String pullUrl, int number) {
+                       String createdAt, String closedAt, String mergedAt,
+                       String pullUrl, int number) {
         this.title = title;
         this.state = state;
         this.creator = creator;
         this.createdAt = createdAt;
-        this.mergedAt = null;
-        this.pullUrl = pullUrl;
-        this.number = number;
-    }
-
-    public PullRequest(String title, String state, Creator creator,
-                       String createdAt, String mergedAt, String pullUrl,
-                       int number) {
-        this.title = title;
-        this.state = state;
-        this.creator = creator;
-        this.createdAt = createdAt;
+        this.closedAt = closedAt;
         this.mergedAt = mergedAt;
         this.pullUrl = pullUrl;
         this.number = number;
@@ -71,7 +64,11 @@ public class PullRequest {
         return createdAt;
     }
 
-    public String getMergetAt() {
+    public String getClosedAt(){
+        return closedAt;
+    }
+
+    public String getMergedAt() {
         return mergedAt;
     }
 

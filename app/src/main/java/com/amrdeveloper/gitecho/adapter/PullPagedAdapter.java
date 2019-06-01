@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.PullListItemBinding;
 import com.amrdeveloper.gitecho.object.PullRequest;
+import com.amrdeveloper.gitecho.utils.FormatUtils;
+import com.amrdeveloper.gitecho.utils.UpdateFormatter;
+
+import java.util.Locale;
 
 public class PullPagedAdapter extends PagedListAdapter<PullRequest, PullPagedAdapter.PullViewHolder> {
 
@@ -62,24 +66,41 @@ public class PullPagedAdapter extends PagedListAdapter<PullRequest, PullPagedAda
         }
 
         private void bingPullRequest(PullRequest pullRequest) {
+            int requestNum = pullRequest.getNumber();
+            String creator = pullRequest.getCreator().getUsername();
+            String requestType = pullRequest.getPullRequestType();
+
             binding.pullTitleTxt.setText(pullRequest.getTitle());
-            //TODO : create info like github with format
-            //TODO : #<Number> <opened/closed> on <Time> by <creator>
-            binding.issueInfo.setText(pullRequest.getState());
-            switch (pullRequest.getPullRequestType()) {
+
+            String date;
+            switch (requestType) {
                 case PullRequest.STATE_OPEN: {
                     binding.pullIcon.setImageResource(R.drawable.ic_pull_request);
+                    date = pullRequest.getCreatedAt();
                     break;
                 }
                 case PullRequest.STATE_CLOSE: {
                     binding.pullIcon.setImageResource(R.drawable.ic_close_pull_request);
+                    date = pullRequest.getClosedAt();
                     break;
                 }
                 case PullRequest.STATE_MERGE: {
                     binding.pullIcon.setImageResource(R.drawable.ic_git_merge);
+                    date = pullRequest.getMergedAt();
                     break;
                 }
+                default:{
+                    date = pullRequest.getCreatedAt();
+                }
             }
+
+            String updateFrom = UpdateFormatter.getUpdatedFromTime(date);
+            String info = String.format(
+                    Locale.ENGLISH,
+                    FormatUtils.REQUEST_ISSUE_FORMAT,
+                    requestNum,requestType,updateFrom,creator);
+
+            binding.issueInfo.setText(info);
         }
     }
 }

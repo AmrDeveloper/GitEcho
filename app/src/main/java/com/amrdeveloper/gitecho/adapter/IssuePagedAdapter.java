@@ -82,7 +82,7 @@ public class IssuePagedAdapter extends PagedListAdapter<Issue, IssuePagedAdapter
             String updateFrom = UpdateFormatter.getUpdatedFromTime(date);
             String info = String.format(
                     Locale.ENGLISH,
-                    FormatUtils.ISSUE_INFO,
+                    FormatUtils.REQUEST_ISSUE_FORMAT,
                     issueNum,issueState,updateFrom,creator);
             binding.issueIcon.setImageResource(issueIcon);
             binding.issueTitleTxt.setText(issue.getTitle());
