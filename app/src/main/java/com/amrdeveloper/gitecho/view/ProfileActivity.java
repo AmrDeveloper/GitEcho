@@ -1,7 +1,9 @@
 package com.amrdeveloper.gitecho.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -54,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuId = item.getItemId();
         if (menuId == R.id.logoutMenu) {
-            userLogout();
+            showLogoutDialog();
         }
         return true;
     }
@@ -101,6 +103,18 @@ public class ProfileActivity extends AppCompatActivity
             binding.bioTxt.setText(bio);
         else
             binding.bioTxt.setVisibility(View.GONE);
+    }
+
+    private void showLogoutDialog(){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("You want logout?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton("Yes",(dialog, id) -> userLogout());
+        builder1.setNegativeButton( "No",(dialog, id) -> dialog.cancel());
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 
     private void userLogout(){
