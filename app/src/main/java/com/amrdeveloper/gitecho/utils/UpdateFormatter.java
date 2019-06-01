@@ -7,17 +7,17 @@ public class UpdateFormatter extends DateUtils{
     /**
      * If Different Between create date and update date less than 1 day
      */
-    private static final String DAYS_TODAY_FORMAT = "Updated Today";
+    private static final String DAYS_TODAY_FORMAT = "Today";
 
     /**
      * If Different Between create date and update date is less than 30 day
      */
-    private static final String DAYS_DIFFERENT_FORMAT = "Updated %d days ago";
+    private static final String DAYS_DIFFERENT_FORMAT = "%d days ago";
 
     /**
      * If Different Between create date and update date is bigger than 30 day
      */
-    private static final String DATE_DIFFERENT_FORMAT = "Updated on %s";
+    private static final String DATE_DIFFERENT_FORMAT = "on %s";
 
     public static String getUpdatedFromTime(String updatedAt){
         long differentInDays = getDifferentFromTime(updatedAt);

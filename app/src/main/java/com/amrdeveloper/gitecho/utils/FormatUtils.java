@@ -9,4 +9,5 @@ public class FormatUtils {
     public static final String FOLLOWING = "Following : %d";
     public static final String REPOSITORIES = "Repositories : %d";
     public static final String CREATED_AT = "Created At : %s";
+    public static final String ISSUE_INFO = "#%d %s on %s by %s";
 }

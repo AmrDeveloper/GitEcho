@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.IssueListItemBinding;
 import com.amrdeveloper.gitecho.object.Issue;
+import com.amrdeveloper.gitecho.utils.FormatUtils;
+import com.amrdeveloper.gitecho.utils.UpdateFormatter;
+
+import java.util.Locale;
 
 public class IssuePagedAdapter extends PagedListAdapter<Issue, IssuePagedAdapter.IssueViewHolder> {
 
@@ -63,12 +67,26 @@ public class IssuePagedAdapter extends PagedListAdapter<Issue, IssuePagedAdapter
 
         private void bindIssue(Issue issue) {
             //TODO : create info like github with format
-            //TODO : #<Number> <opened/closed> on <Time> by <creator>
+            //TODO : #<Number> <opene/closed> on <Time> by <creator>
             int issueIcon = (issue.getState().equals(Issue.STATE_OPEN))
                     ? R.drawable.ic_issue_opened : R.drawable.ic_issue_closed;
+            String issueState = issue.getState();
+            int issueNum = issue.getIssueNumber();
+            String creator = issue.getCreator().getUsername();
+            String date;
+            if(issueState.equals(Issue.STATE_OPEN)){
+                date = issue.getCreatedAt();
+            }else{
+                date = issue.getClosedAt();
+            }
+            String updateFrom = UpdateFormatter.getUpdatedFromTime(date);
+            String info = String.format(
+                    Locale.ENGLISH,
+                    FormatUtils.ISSUE_INFO,
+                    issueNum,issueState,updateFrom,creator);
             binding.issueIcon.setImageResource(issueIcon);
-            binding.issueInfo.setText(issue.getState());
             binding.issueTitleTxt.setText(issue.getTitle());
+            binding.issueInfo.setText(info);
         }
     }
 }
