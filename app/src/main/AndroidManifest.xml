@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/GitHubTheme">
-        <activity android:name=".view.PullRequestActivity"></activity>
+        <activity android:name=".view.PullRequestActivity" android:label="@string/pull_requests"/>
         <activity android:name=".view.IssuesActivity" />
         <activity
             android:name=".view.RepositoriesActivity"
