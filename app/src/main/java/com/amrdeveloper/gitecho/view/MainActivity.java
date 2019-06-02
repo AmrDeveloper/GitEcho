@@ -13,11 +13,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amrdeveloper.gitecho.databinding.MultiSearchDialogBinding;
@@ -46,6 +48,7 @@ public class MainActivity
 
     private Snackbar onlineSnackBar;
     private Snackbar offlineSnackBar;
+    private boolean isStateChangedBefore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,15 +179,19 @@ public class MainActivity
 
     @Override
     public void onInternetConnected() {
-        if(onlineSnackBar == null){
-            final View view = getWindow().getDecorView().getRootView();
-            onlineSnackBar = Snackbar.make(view, R.string.online, Snackbar.LENGTH_SHORT);
-            onlineSnackBar.getView().setBackgroundResource(R.color.green);
+        if(isStateChangedBefore){
+            if(onlineSnackBar == null){
+                final View view = getWindow().getDecorView().getRootView();
+                onlineSnackBar = Snackbar.make(view, R.string.online, Snackbar.LENGTH_SHORT);
+                offlineSnackBar.getView().setBackgroundResource(R.color.green);
+            }
+            if(offlineSnackBar != null && offlineSnackBar.isShown()){
+                offlineSnackBar.dismiss();
+            }
+            onlineSnackBar.show();
+        }else{
+            isStateChangedBefore = true;
         }
-        if(offlineSnackBar != null && offlineSnackBar.isShown()){
-            offlineSnackBar.dismiss();
-        }
-        onlineSnackBar.show();
     }
 
     @Override
@@ -195,5 +202,6 @@ public class MainActivity
             offlineSnackBar.getView().setBackgroundResource(R.color.red);
         }
         offlineSnackBar.show();
+        isStateChangedBefore = true;
     }
 }
