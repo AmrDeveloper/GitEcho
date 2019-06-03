@@ -1,6 +1,5 @@
 package com.amrdeveloper.gitecho.view;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AlertDialog;
@@ -10,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
 import com.amrdeveloper.gitecho.presenter.ProfilePresenter;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.databinding.ActivityProfileBinding;
@@ -19,6 +19,10 @@ import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.utils.FormatUtils;
 import com.amrdeveloper.gitecho.utils.Session;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Locale;
 
@@ -129,5 +133,22 @@ public class ProfileActivity extends AppCompatActivity
 
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoadFinishEvent(LoadFinishEvent<Account> loadFinish){
+        onLoadFinish(loadFinish.getResultData());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }

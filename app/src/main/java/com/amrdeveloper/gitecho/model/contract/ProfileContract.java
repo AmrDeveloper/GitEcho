@@ -6,7 +6,7 @@ import com.amrdeveloper.gitecho.object.Account;
 public interface ProfileContract {
 
     public interface Model{
-        void getUserInformation(String username, OnLoadListener<Account> listener);
+        void getUserInformation(String username);
     }
 
     public interface View{
