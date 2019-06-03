@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void onLoginFailure() {
         binding.usernameInputLayout.setError(getString(R.string.invalid_username));
+        binding.usernameInputLayout.requestFocus();
     }
 
     @Override

@@ -28,6 +28,7 @@ public class LoginPresenter
             model.makeLoginRequest(context,username,this);
         }else{
             view.hideProgressBar();
+            view.onLoginFailure();
         }
     }
 

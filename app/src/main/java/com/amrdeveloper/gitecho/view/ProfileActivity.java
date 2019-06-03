@@ -103,6 +103,12 @@ public class ProfileActivity extends AppCompatActivity
             binding.bioTxt.setText(bio);
         else
             binding.bioTxt.setVisibility(View.GONE);
+
+        binding.reposTxt.setOnClickListener(v -> {
+            Intent intent = new Intent(this,MainActivity.class);
+            intent.putExtra(Consts.USERNAME,user.getUsername());
+            startActivity(intent);
+        });
     }
 
     private void showLogoutDialog(){
