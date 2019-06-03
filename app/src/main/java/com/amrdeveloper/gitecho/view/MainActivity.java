@@ -183,7 +183,7 @@ public class MainActivity
             if(onlineSnackBar == null){
                 final View view = getWindow().getDecorView().getRootView();
                 onlineSnackBar = Snackbar.make(view, R.string.online, Snackbar.LENGTH_SHORT);
-                offlineSnackBar.getView().setBackgroundResource(R.color.green);
+                onlineSnackBar.getView().setBackgroundResource(R.color.green);
             }
             if(offlineSnackBar != null && offlineSnackBar.isShown()){
                 offlineSnackBar.dismiss();
