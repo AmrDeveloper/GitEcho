@@ -10,7 +10,7 @@ import com.amrdeveloper.gitecho.object.Repository;
 public interface ForksContract {
 
     public interface Model{
-        void loadingDataFromApi(ForksViewModel viewModel, LifecycleOwner owner, OnLoadListener listener);
+        void loadingDataFromApi(ForksViewModel viewModel, LifecycleOwner owner);
     }
 
     public interface View{

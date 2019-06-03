@@ -5,7 +5,6 @@ import android.content.Context;
 import com.amrdeveloper.gitecho.model.contract.LoginContract;
 import com.amrdeveloper.gitecho.model.events.LoginFailureEvent;
 import com.amrdeveloper.gitecho.model.events.LoginSuccessEvent;
-import com.amrdeveloper.gitecho.model.listener.OnLoginListener;
 import com.amrdeveloper.gitecho.model.network.RetrofitClient;
 import com.amrdeveloper.gitecho.object.Account;
 
@@ -33,16 +32,13 @@ public class LoginModel implements LoginContract.Model {
                         if(response.body() != null){
                             Account login = response.body();
                             EventBus.getDefault().post(new LoginSuccessEvent(login.getUsername()));
-                            //listener.onLoginSuccess(login.getUsername());
                         }else{
-                            //listener.onLoginFailure();
                             EventBus.getDefault().post(new LoginFailureEvent());
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Account> call, Throwable t) {
-                        //listener.onLoginFailure();
                         EventBus.getDefault().post(new LoginFailureEvent());
                     }
                 });

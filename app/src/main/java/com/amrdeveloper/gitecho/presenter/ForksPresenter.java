@@ -10,8 +10,7 @@ import com.amrdeveloper.gitecho.model.network.forks.ForksViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
 
 public class ForksPresenter
-        implements ForksContract.Presenter,
-        OnLoadListener<PagedList<Repository>> {
+        implements ForksContract.Presenter {
 
     private ForksContract.Model model;
     private ForksContract.View view;
@@ -28,12 +27,6 @@ public class ForksPresenter
     @Override
     public void startLoadingData() {
         view.showProgressBar();
-        model.loadingDataFromApi(viewModel,lifecycleOwner,this);
-    }
-
-    @Override
-    public void onLoadFinish(PagedList<Repository> repositories) {
-        view.onLoadFinish(repositories);
-        view.hideProgressBar();
+        model.loadingDataFromApi(viewModel,lifecycleOwner);
     }
 }
