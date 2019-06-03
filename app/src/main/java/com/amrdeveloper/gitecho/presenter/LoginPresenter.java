@@ -4,11 +4,9 @@ import android.content.Context;
 
 import com.amrdeveloper.gitecho.model.contract.LoginContract;
 import com.amrdeveloper.gitecho.model.LoginModel;
-import com.amrdeveloper.gitecho.model.listener.OnLoginListener;
 
 public class LoginPresenter
-        implements LoginContract.Presenter
-        , OnLoginListener {
+        implements LoginContract.Presenter {
 
     private Context context;
     private LoginContract.Model model;
@@ -23,24 +21,12 @@ public class LoginPresenter
     @Override
     public void onStartLogin(String username) {
         boolean isValidUsername = model.isUsernameValid(username);
-        if(isValidUsername){
+        if (isValidUsername) {
             view.showProgressBar();
-            model.makeLoginRequest(context,username,this);
-        }else{
+            model.makeLoginRequest(context, username);
+        } else {
             view.hideProgressBar();
             view.onLoginFailure();
         }
-    }
-
-    @Override
-    public void onLoginSuccess(String username) {
-        view.hideProgressBar();
-        view.onLoginSuccess(username);
-    }
-
-    @Override
-    public void onLoginFailure() {
-        view.hideProgressBar();
-        view.onLoginFailure();
     }
 }

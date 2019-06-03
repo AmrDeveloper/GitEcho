@@ -7,12 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.amrdeveloper.gitecho.model.events.LoginFailureEvent;
+import com.amrdeveloper.gitecho.model.events.LoginSuccessEvent;
 import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.utils.Session;
 import com.amrdeveloper.gitecho.databinding.ActivityLoginBinding;
 import com.amrdeveloper.gitecho.model.contract.LoginContract;
 import com.amrdeveloper.gitecho.presenter.LoginPresenter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
@@ -73,5 +79,29 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra(Consts.USERNAME,username);
         startActivity(intent);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoginSuccessEvent(LoginSuccessEvent successEvent){
+        hideProgressBar();
+        onLoginSuccess(successEvent.getUsername());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void OnLoginFeilureEvent(LoginFailureEvent loginFailure){
+        hideProgressBar();
+        onLoginFailure();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }

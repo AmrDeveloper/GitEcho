@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amrdeveloper.gitecho.databinding.MultiSearchDialogBinding;
+import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
 import com.amrdeveloper.gitecho.object.Type;
 import com.amrdeveloper.gitecho.receiver.NetworkReceiver;
 import com.amrdeveloper.gitecho.receiver.OnNetworkListener;
@@ -35,6 +36,10 @@ import com.amrdeveloper.gitecho.model.contract.MainContract;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.presenter.MainPresenter;
 import com.amrdeveloper.gitecho.utils.FormatUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity
         extends AppCompatActivity
@@ -71,17 +76,6 @@ public class MainActivity
         networkReceiver = new NetworkReceiver(this);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        registerReceiver(networkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        unregisterReceiver(networkReceiver);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -124,6 +118,12 @@ public class MainActivity
     @Override
     public void onLoadFinish(PagedList<Repository> repositories) {
         repoRecyclerAdapter.submitList(repositories);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoadFinishEvent(LoadFinishEvent<PagedList<Repository>> repositories){
+        onLoadFinish(repositories.getResultData());
+        hideProgressBar();
     }
 
     @Override
@@ -203,5 +203,19 @@ public class MainActivity
         }
         offlineSnackBar.show();
         isStateChangedBefore = true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        registerReceiver(networkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(networkReceiver);
+        EventBus.getDefault().unregister(this);
     }
 }

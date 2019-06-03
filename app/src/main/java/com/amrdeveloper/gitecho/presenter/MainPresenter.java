@@ -10,8 +10,7 @@ import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.object.Repository;
 
 public class MainPresenter
-        implements MainContract.Presenter,
-        OnLoadListener<PagedList<Repository>> {
+        implements MainContract.Presenter{
 
     private MainContract.Model model;
     private MainContract.View view;
@@ -28,12 +27,6 @@ public class MainPresenter
     @Override
     public void startLoadingData(String username) {
         view.showProgressBar();
-        model.loadingDataFromApi(viewModel,lifecycleOwner,this);
-    }
-
-    @Override
-    public void onLoadFinish(PagedList<Repository> repositories) {
-        view.onLoadFinish(repositories);
-        view.hideProgressBar();
+        model.loadingDataFromApi(viewModel,lifecycleOwner);
     }
 }
