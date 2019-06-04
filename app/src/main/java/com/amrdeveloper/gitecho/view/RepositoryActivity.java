@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
 import com.amrdeveloper.gitecho.utils.Consts;
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.model.contract.RepositoryContract;
@@ -16,6 +17,10 @@ import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.utils.DateUtils;
 import com.amrdeveloper.gitecho.utils.FormatUtils;
 import com.amrdeveloper.gitecho.utils.UpdateFormatter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Date;
 import java.util.Locale;
@@ -90,5 +95,28 @@ public class RepositoryActivity extends AppCompatActivity implements RepositoryC
             intent.putExtra(Consts.REPOSITORY_NAME,repository.getName());
             startActivity(intent);
         });
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoadFinishEvent(LoadFinishEvent<Repository> repository){
+        onLoadFinish(repository.getResultData());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }

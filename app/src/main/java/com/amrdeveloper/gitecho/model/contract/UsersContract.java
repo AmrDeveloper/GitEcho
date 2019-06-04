@@ -4,7 +4,6 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.model.network.users.UsersViewModel;
-import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.object.User;
 
 public interface UsersContract {

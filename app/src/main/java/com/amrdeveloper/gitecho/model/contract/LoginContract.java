@@ -2,8 +2,6 @@ package com.amrdeveloper.gitecho.model.contract;
 
 import android.content.Context;
 
-import com.amrdeveloper.gitecho.model.listener.OnLoginListener;
-
 public interface LoginContract {
 
     public interface Model {

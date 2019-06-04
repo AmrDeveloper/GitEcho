@@ -2,7 +2,6 @@ package com.amrdeveloper.gitecho.model;
 
 import com.amrdeveloper.gitecho.model.contract.ProfileContract;
 import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
-import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.model.network.RetrofitClient;
 import com.amrdeveloper.gitecho.object.Account;
 
@@ -23,7 +22,7 @@ public class ProfileModel implements ProfileContract.Model {
                     @Override
                     public void onResponse(Call<Account> call, Response<Account> response) {
                         if (response.body() != null) {
-                            EventBus.getDefault().post(new LoadFinishEvent<Account>(response.body()));
+                            EventBus.getDefault().post(new LoadFinishEvent<>(response.body()));
                         }
                     }
 

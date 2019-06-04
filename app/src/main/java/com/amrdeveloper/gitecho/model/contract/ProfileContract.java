@@ -1,6 +1,5 @@
 package com.amrdeveloper.gitecho.model.contract;
 
-import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.object.Account;
 
 public interface ProfileContract {
