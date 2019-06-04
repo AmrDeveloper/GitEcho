@@ -1,17 +1,12 @@
 package com.amrdeveloper.gitecho.presenter;
 
 import android.arch.lifecycle.LifecycleOwner;
-import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.model.contract.IssuesContract;
 import com.amrdeveloper.gitecho.model.IssuesModel;
 import com.amrdeveloper.gitecho.model.network.issues.IssuesViewModel;
-import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
-import com.amrdeveloper.gitecho.object.Issue;
 
-public class IssuesPresenter
-        implements IssuesContract.Presenter,
-        OnLoadListener<PagedList<Issue>> {
+public class IssuesPresenter implements IssuesContract.Presenter{
 
     private IssuesContract.Model model;
     private IssuesContract.View view;
@@ -28,12 +23,6 @@ public class IssuesPresenter
     @Override
     public void startLoadingData() {
         view.showProgressBar();
-        model.loadingDataFromApi(viewModel,lifecycleOwner,this);
-    }
-
-    @Override
-    public void onLoadFinish(PagedList<Issue> data) {
-        view.onLoadFinish(data);
-        view.hideProgressBar();
+        model.loadingDataFromApi(viewModel,lifecycleOwner);
     }
 }

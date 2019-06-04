@@ -12,12 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.amrdeveloper.gitecho.model.contract.IssuesContract;
+import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
 import com.amrdeveloper.gitecho.presenter.IssuesPresenter;
 import com.amrdeveloper.gitecho.model.network.issues.IssuesViewModel;
 import com.amrdeveloper.gitecho.adapter.IssuePagedAdapter;
 import com.amrdeveloper.gitecho.databinding.IssuesListBinding;
 import com.amrdeveloper.gitecho.object.Issue;
 import com.amrdeveloper.gitecho.utils.Consts;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class ClosedIssuedFragment
         extends Fragment
@@ -64,6 +69,12 @@ public class ClosedIssuedFragment
         issuePagedAdapter.submitList(issues);
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoadFinishEvent(LoadFinishEvent<PagedList<Issue>> issues){
+        onLoadFinish(issues.getResultData());
+        hideProgressBar();
+    }
+
     @Override
     public void showProgressBar() {
         binding.loadingIndicator.setVisibility(View.VISIBLE);
@@ -72,5 +83,23 @@ public class ClosedIssuedFragment
     @Override
     public void hideProgressBar() {
         binding.loadingIndicator.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }

@@ -4,13 +4,12 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.model.network.issues.IssuesViewModel;
-import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.object.Issue;
 
 public interface IssuesContract {
 
     public interface Model{
-        void loadingDataFromApi(IssuesViewModel viewModel, LifecycleOwner owner, OnLoadListener listener);
+        void loadingDataFromApi(IssuesViewModel viewModel, LifecycleOwner owner);
     }
 
     public interface View{
