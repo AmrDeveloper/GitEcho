@@ -172,6 +172,7 @@ public class MainActivity
             Intent intent = new Intent(this, typeActivity);
             intent.putExtra(Consts.QUERY, searchQuery);
             startActivity(intent);
+            dialog.dismiss();
         });
 
         dialog.show();

@@ -12,12 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.amrdeveloper.gitecho.model.contract.PullRequestContract;
+import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
 import com.amrdeveloper.gitecho.presenter.PullRequestPresenter;
 import com.amrdeveloper.gitecho.model.network.pulls.PullRequestViewModel;
 import com.amrdeveloper.gitecho.adapter.PullPagedAdapter;
 import com.amrdeveloper.gitecho.databinding.RequestListBinding;
 import com.amrdeveloper.gitecho.object.PullRequest;
 import com.amrdeveloper.gitecho.utils.Consts;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class OpenRequestFragment
         extends Fragment
@@ -59,8 +64,14 @@ public class OpenRequestFragment
     }
 
     @Override
-    public void onLoadFinish(PagedList<PullRequest> issues) {
-        pullPagedAdapter.submitList(issues);
+    public void onLoadFinish(PagedList<PullRequest> requests) {
+        pullPagedAdapter.submitList(requests);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoadFinishEvent(LoadFinishEvent<PagedList<PullRequest>> requests){
+        onLoadFinish(requests.getResultData());
+        hideProgressBar();
     }
 
     @Override
@@ -71,5 +82,23 @@ public class OpenRequestFragment
     @Override
     public void hideProgressBar() {
         binding.loadingIndicator.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }
