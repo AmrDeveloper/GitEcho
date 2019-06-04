@@ -10,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
+import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
+import com.amrdeveloper.gitecho.object.Stargazer;
 import com.amrdeveloper.gitecho.presenter.UsersPresenter;
 import com.amrdeveloper.gitecho.model.network.users.UsersViewModel;
 import com.amrdeveloper.gitecho.adapter.UserPagedAdapter;
@@ -17,6 +19,10 @@ import com.amrdeveloper.gitecho.model.contract.UsersContract;
 import com.amrdeveloper.gitecho.databinding.ActivityUsersBinding;
 import com.amrdeveloper.gitecho.object.User;
 import com.amrdeveloper.gitecho.utils.Consts;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class UsersActivity extends AppCompatActivity implements UsersContract.View {
 
@@ -53,6 +59,12 @@ public class UsersActivity extends AppCompatActivity implements UsersContract.Vi
         userPagedAdapter.submitList(users);
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoadFinishEvent(LoadFinishEvent<PagedList<User>> users){
+        onLoadFinish(users.getResultData());
+        hideProgressBar();
+    }
+
     @Override
     public void showProgressBar() {
         binding.loadingIndicator.setVisibility(View.VISIBLE);
@@ -61,5 +73,23 @@ public class UsersActivity extends AppCompatActivity implements UsersContract.Vi
     @Override
     public void hideProgressBar() {
         binding.loadingIndicator.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }
