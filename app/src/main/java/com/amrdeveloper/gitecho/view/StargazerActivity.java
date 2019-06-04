@@ -3,12 +3,13 @@ package com.amrdeveloper.gitecho.view;
 import android.arch.lifecycle.ViewModelProviders;
 import android.arch.paging.PagedList;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.StarPagedAdapter;
@@ -61,13 +62,11 @@ public class StargazerActivity extends AppCompatActivity implements StarsContrac
         starPagedAdapter.submitList(stargazers);
     }
 
-    /*
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onLoadFinishEvent(LoadFinishEvent<PagedList<Stargazer>> stargazers){
         onLoadFinish(stargazers.getResultData());
         hideProgressBar();
     }
-    */
 
     @Override
     public void showProgressBar() {
@@ -76,10 +75,9 @@ public class StargazerActivity extends AppCompatActivity implements StarsContrac
 
     @Override
     public void hideProgressBar() {
-       binding.loadingIndicator.setVisibility(View.GONE);
+        binding.loadingIndicator.setVisibility(View.GONE);
     }
 
-    /*
     @Override
     protected void onStart() {
         super.onStart();
@@ -87,9 +85,14 @@ public class StargazerActivity extends AppCompatActivity implements StarsContrac
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);
     }
-    */
 }

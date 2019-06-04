@@ -121,7 +121,7 @@ public class MainActivity
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onLoadFinishEvent(LoadFinishEvent<PagedList<Repository>> repositories){
+    public void onLoadFinishEvent(LoadFinishEvent<PagedList<Repository>> repositories) {
         onLoadFinish(repositories.getResultData());
         hideProgressBar();
     }
@@ -179,24 +179,24 @@ public class MainActivity
 
     @Override
     public void onInternetConnected() {
-        if(isStateChangedBefore){
-            if(onlineSnackBar == null){
+        if (isStateChangedBefore) {
+            if (onlineSnackBar == null) {
                 final View view = getWindow().getDecorView().getRootView();
                 onlineSnackBar = Snackbar.make(view, R.string.online, Snackbar.LENGTH_SHORT);
                 onlineSnackBar.getView().setBackgroundResource(R.color.green);
             }
-            if(offlineSnackBar != null && offlineSnackBar.isShown()){
+            if (offlineSnackBar != null && offlineSnackBar.isShown()) {
                 offlineSnackBar.dismiss();
             }
             onlineSnackBar.show();
-        }else{
+        } else {
             isStateChangedBefore = true;
         }
     }
 
     @Override
     public void onInternetDisConnected() {
-        if(offlineSnackBar == null){
+        if (offlineSnackBar == null) {
             final View view = getWindow().getDecorView().getRootView();
             offlineSnackBar = Snackbar.make(view, R.string.offline, Snackbar.LENGTH_INDEFINITE);
             offlineSnackBar.getView().setBackgroundResource(R.color.red);
@@ -210,6 +210,12 @@ public class MainActivity
         super.onStart();
         registerReceiver(networkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override

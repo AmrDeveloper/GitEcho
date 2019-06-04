@@ -3,14 +3,13 @@ package com.amrdeveloper.gitecho.model.contract;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.paging.PagedList;
 
-import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.model.network.stars.StarsViewModel;
 import com.amrdeveloper.gitecho.object.Stargazer;
 
 public interface StarsContract {
 
     public interface Model{
-        void loadingDataFromApi(StarsViewModel viewModel, LifecycleOwner owner, OnLoadListener listener);
+        void loadingDataFromApi(StarsViewModel viewModel, LifecycleOwner owner);
     }
 
     public interface View{

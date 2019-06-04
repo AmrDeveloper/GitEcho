@@ -147,6 +147,12 @@ public class ProfileActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);

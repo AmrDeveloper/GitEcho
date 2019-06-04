@@ -100,6 +100,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);

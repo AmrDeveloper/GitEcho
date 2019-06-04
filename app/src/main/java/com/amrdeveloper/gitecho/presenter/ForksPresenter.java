@@ -1,13 +1,10 @@
 package com.amrdeveloper.gitecho.presenter;
 
 import android.arch.lifecycle.LifecycleOwner;
-import android.arch.paging.PagedList;
 
 import com.amrdeveloper.gitecho.model.contract.ForksContract;
 import com.amrdeveloper.gitecho.model.ForksModel;
-import com.amrdeveloper.gitecho.model.listener.OnLoadListener;
 import com.amrdeveloper.gitecho.model.network.forks.ForksViewModel;
-import com.amrdeveloper.gitecho.object.Repository;
 
 public class ForksPresenter
         implements ForksContract.Presenter {
