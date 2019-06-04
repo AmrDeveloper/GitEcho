@@ -10,8 +10,8 @@ import com.amrdeveloper.gitecho.model.network.repos.ReposViewModel;
 import com.amrdeveloper.gitecho.object.Repository;
 
 public class RepositoriesPresenter
-        implements RepositoriesContract.Presenter,
-        OnLoadListener<PagedList<Repository>> {
+        implements RepositoriesContract.Presenter{
+
 
     private RepositoriesContract.View view;
     private RepositoriesContract.Model model;
@@ -28,12 +28,6 @@ public class RepositoriesPresenter
     @Override
     public void startLoadingData(String query) {
         view.showProgressBar();
-        model.loadingDataFromApi(viewModel,lifecycleOwner,this);
-    }
-
-    @Override
-    public void onLoadFinish(PagedList<Repository> repositories) {
-        view.onLoadFinish(repositories);
-        view.hideProgressBar();
+        model.loadingDataFromApi(viewModel,lifecycleOwner);
     }
 }

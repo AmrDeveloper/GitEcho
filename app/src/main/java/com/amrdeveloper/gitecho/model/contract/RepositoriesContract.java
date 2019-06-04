@@ -10,7 +10,7 @@ import com.amrdeveloper.gitecho.object.Repository;
 public interface RepositoriesContract {
 
     public interface Model{
-        void loadingDataFromApi(ReposViewModel viewModel, LifecycleOwner owner, OnLoadListener loadListener);
+        void loadingDataFromApi(ReposViewModel viewModel, LifecycleOwner owner);
     }
 
     public interface View{

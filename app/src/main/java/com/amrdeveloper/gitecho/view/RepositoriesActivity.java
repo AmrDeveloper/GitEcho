@@ -11,12 +11,17 @@ import android.view.View;
 
 import com.amrdeveloper.gitecho.R;
 import com.amrdeveloper.gitecho.adapter.RepoPagedAdapter;
+import com.amrdeveloper.gitecho.model.events.LoadFinishEvent;
 import com.amrdeveloper.gitecho.model.network.repos.ReposViewModel;
 import com.amrdeveloper.gitecho.presenter.RepositoriesPresenter;
 import com.amrdeveloper.gitecho.model.contract.RepositoriesContract;
 import com.amrdeveloper.gitecho.databinding.ActivityRepositoriesBinding;
 import com.amrdeveloper.gitecho.object.Repository;
 import com.amrdeveloper.gitecho.utils.Consts;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class RepositoriesActivity extends AppCompatActivity implements RepositoriesContract.View {
 
@@ -52,6 +57,12 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
         repoRecyclerAdapter.submitList(repositories);
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoadFinishEvent(LoadFinishEvent<PagedList<Repository>> repositories){
+        onLoadFinish(repositories.getResultData());
+        hideProgressBar();
+    }
+
     @Override
     public void showProgressBar() {
         binding.loadingIndicator.setVisibility(View.VISIBLE);
@@ -60,5 +71,23 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
     @Override
     public void hideProgressBar() {
         binding.loadingIndicator.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }
